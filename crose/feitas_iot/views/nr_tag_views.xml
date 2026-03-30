@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+
+        <record id="view_fts_nr_tag_tree" model="ir.ui.view">
+            <field name="name">fts.nr.tag.tree</field>
+            <field name="model">fts.nr.tag</field>
+            <field name="arch" type="xml">
+                <list string="标签" editable="bottom">
+                    <field name="name"/>
+                    <field name="color" widget="color_picker"/>
+                </list>
+            </field>
+        </record>
+
+    </data>
+</odoo>

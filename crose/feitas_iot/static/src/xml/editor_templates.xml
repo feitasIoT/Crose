@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="feitas_iot.NodeREDEmbed">
+        <div style="width: 100%; height: 100%;">
+            <iframe
+                t-att-src="iframeSrc"
+                style="width: 100%; height: 100%; border: none;">
+            </iframe>
+        </div>
+    </t>
+
+    <t t-name="feitas_iot.NodeREDLogsAction">
+        <div class="o_action p-3">
+            <div class="d-flex flex-column gap-2">
+                <div t-if="state.loading" class="text-muted">加载中...</div>
+                <div t-if="state.error" class="text-danger" t-esc="state.error"/>
+                <pre
+                    t-ref="log"
+                    style="height: 60vh; overflow: auto; white-space: pre-wrap; background: #0b0f14; color: #e6edf3; padding: 12px; border-radius: 6px;"
+                    t-esc="logText"
+                />
+                <div class="d-flex justify-content-end gap-2">
+                    <button class="btn btn-secondary" t-on-click="onClear">清空</button>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="feitas_iot.NodeREDLogsDialog">
+        <Dialog title="title" size="'xl'">
+            <div class="d-flex flex-column gap-2">
+                <div t-if="state.loading" class="text-muted">加载中...</div>
+                <div t-if="state.error" class="text-danger" t-esc="state.error"/>
+                <pre
+                    t-ref="log"
+                    style="height: 60vh; overflow: auto; white-space: pre-wrap; background: #0b0f14; color: #e6edf3; padding: 12px; border-radius: 6px;"
+                    t-esc="logText"
+                />
+            </div>
+            <t t-set-slot="footer">
+                <button class="btn btn-secondary" t-on-click="onClear">清空</button>
+                <button class="btn btn-primary" t-on-click="() => props.close()">关闭</button>
+            </t>
+        </Dialog>
+    </t>
+</templates>

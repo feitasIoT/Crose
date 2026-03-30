@@ -1,0 +1,139 @@
+<odoo>
+    <data>
+
+        <record id="view_fts_edge_agent_tree" model="ir.ui.view">
+            <field name="name">fts.edge.agent.tree</field>
+            <field name="model">fts.edge.agent</field>
+            <field name="arch" type="xml">
+                <list string="Edge Agent">
+                    <field name="name"/>
+                    <field name="ip_address"/>
+                    <field name="port"/>
+                    <field name="agent_port"/>
+                    <field name="status" widget="badge" decoration-success="status == 'online'" decoration-warning="status == 'error'" decoration-muted="status == 'offline'"/>
+                    <button name="action_open_vnc" type="object" icon="fa-eye" title="远程桌面"/>
+                    <button name="action_view_instances" type="object" string="实例"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_fts_edge_agent_kanban" model="ir.ui.view">
+            <field name="name">fts.edge.agent.kanban</field>
+            <field name="model">fts.edge.agent</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="version"/>
+                    <field name="is_template"/>
+                    <field name="status"/>
+                    <field name="os_version"/>
+                    <field name="ip_address"/>
+                    <field name="port"/>
+                    <field name="agent_port"/>
+                    <templates>
+                        <t t-name="card">
+                            <div class="oe_kanban_global_click o_kanban_record feitas_iot_instance_kanban_card">
+                                <div class="d-flex flex-column gap-1">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span t-attf-class="feitas_iot_status_dot feitas_iot_status_{{ record.status.raw_value }}"/>
+                                        <strong class="text-truncate">
+                                            <field name="name"/>
+                                        </strong>
+                                        <span t-if="record.is_template.raw_value" class="badge text-bg-info ms-auto">模板</span>
+                                    </div>
+                                    <div class="text-muted text-truncate">
+                                        <span t-esc="record.ip_address.value"/>:<span t-esc="record.port.value"/>
+                                    </div>
+                                    <div class="text-muted text-truncate">
+                                        Agent: <span t-esc="record.ip_address.value"/>:<span t-esc="record.agent_port.value"/>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <span class="badge text-bg-light">
+                                            <field name="os_version"/>
+                                        </span>
+                                        <div class="feitas_iot_instance_kanban_actions d-flex align-items-center gap-1">
+                                            <button type="object" name="action_open_vnc" class="btn btn-link btn-sm p-0 oe_kanban_action" title="远程桌面" icon="fa-eye"/>
+                                            <button type="object" name="action_view_instances" class="btn btn-link btn-sm p-0 oe_kanban_action" title="实例" icon="fa-th-large"/>
+                                            <button type="object" name="action_view_logs" class="btn btn-link btn-sm p-0 oe_kanban_action" title="日志" icon="fa-file-text-o"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_fts_edge_agent_form" model="ir.ui.view">
+            <field name="name">fts.edge.agent.form</field>
+            <field name="model">fts.edge.agent</field>
+            <field name="arch" type="xml">
+                <form string="代理">
+                    <header>
+                        <button name="action_view_logs" type="object" string="日志" class="btn-secondary"/>
+                        <button name="action_generate_config" type="object" string="生成" class="btn-primary"/>
+                        <field name="status" widget="statusbar" options="{'clickable': '1'}"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="version"/>
+                                <field name="is_template"/>
+                                <field name="template_id" invisible="is_template"/>
+                                <field name="os_version"/>
+                                <field name="nr_node"/>
+                            </group>
+                            <group>
+                                <field name="ip_address"/>
+                                <field name="port"/>
+                                <field name="agent_port"/>
+                                
+                            </group>
+                        </group>
+                        <notebook>
+                        <!-- page的顺序根据代理的创建顺序来布置，首先是配置代理启动所需要的应用，包括M要用到的MQTT、实例 -->
+                        <!-- 配置完成后，生成部署命令，供用户在边缘节点执行 -->
+                            <page string="基础配置">
+                                <group>
+                                    <group string="应用">
+                                        <field name="instance_id"/>
+
+                                        <field name="flow_ids" nolabel="1" colspan="2">
+                                            <list editable="bottom">
+                                                <field name="flow_id" domain="[('is_template', '=', True)]"/>
+                                            </list>
+                                        </field>
+                                    </group>
+                                    <group string="MQTT 配置">
+                                        <field name="mqtt_broker_id"/>
+                                        <field name="username"/>
+                                        <field name="password" password="True"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="部署信息">
+                                <group>
+                                    <group string="部署命令">
+                                        <field name="agent_cmd" nolabel="1" colspan="2"/>
+                                    </group>
+                                    <group string="配置文件">
+                                        <field name="config" nolabel="1" colspan="2"/>
+                                    </group>
+                                    
+                                </group>
+                                
+                            </page>
+                            <!-- <page string="配置">
+                                
+                            </page> -->
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

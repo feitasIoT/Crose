@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_crose_nr_package_tree" model="ir.ui.view">
+            <field name="name">crose.nr.package.tree</field>
+            <field name="model">crose.nr.package</field>
+            <field name="arch" type="xml">
+                <list string="Node-RED安装包">
+                    <field name="name"/>
+                    <field name="version"/>
+                    <field name="environment" widget="badge" decoration-info="environment == 'staging'" decoration-success="environment == 'prod'"/>
+                    <field name="component_id"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_crose_nr_package_search" model="ir.ui.view">
+            <field name="name">crose.nr.package.search</field>
+            <field name="model">crose.nr.package</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="version"/>
+                    <field name="component_id"/>
+                    <filter string="Staging" name="filter_staging" domain="[('environment', '=', 'staging')]"/>
+                    <filter string="Production" name="filter_prod" domain="[('environment', '=', 'prod')]"/>
+                    <group>
+                        <filter string="组件" name="group_component" context="{'group_by': 'component_id'}"/>
+                        <filter string="环境" name="group_environment" context="{'group_by': 'environment'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_crose_nr_package_form" model="ir.ui.view">
+            <field name="name">crose.nr.package.form</field>
+            <field name="model">crose.nr.package</field>
+            <field name="arch" type="xml">
+                <form string="Node-RED安装包">
+                    <header>
+                        <button name="action_publish" type="object" string="发布" class="oe_highlight"
+                                invisible="environment == 'prod'" confirm="确定要将此包从 Staging 发布到 Production 环境吗？"/>
+                        <field name="environment" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="version"/>
+                            </group>
+                            <group>
+                                <field name="component_id" readonly="1"/>
+                                <field name="environment" readonly="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_crose_nr_package" model="ir.actions.act_window">
+            <field name="name">安装包</field>
+            <field name="res_model">crose.nr.package</field>
+            <field name="view_mode">list,form</field>
+            <field name="context">{'search_default_filter_staging': 1}</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,2 @@
+redis==7.4.0
+apache-iotdb==2.0.6

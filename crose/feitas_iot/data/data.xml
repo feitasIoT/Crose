@@ -1,0 +1,68 @@
+<odoo>
+    <data noupdate="1">
+        <record id="seq_fts_data_model" model="ir.sequence">
+            <field name="name">Data Model Sequence</field>
+            <field name="code">fts.data.model</field>
+            <field name="prefix">DM</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+
+    <!-- 系统组件 -->
+    <record id="component_mqtt_broker" model="crose.component">
+        <field name="name">MQTT Broker</field>
+        <field name="component_type">mqtt</field>
+        <field name="host">gmqtt</field>
+        <field name="port">8082</field>
+        <field name="url"></field>
+        <field name="metadata">{"metrics_port": 8082,"tcp_port": 1883,"ws_port": 8083}</field>
+    </record>
+
+    <record id="component_nodered" model="crose.component">
+        <field name="name">Node-RED</field>
+        <field name="component_type">nodered</field>
+        <field name="host">nodered</field>
+        <field name="port">1880</field>
+        <field name="url">http://nodered:1880</field>
+        <field name="metadata">{"admin_path": "/admin"}</field>
+    </record>
+
+    <record id="component_iotdb" model="crose.component">
+        <field name="name">IoT DB</field>
+        <field name="component_type">iotdb</field>
+        <field name="host">iotdb</field>
+        <field name="port">6667</field>
+        <field name="url"></field>
+        <field name="metadata">{"dn_rpc_port": 6667,"dn_internal_port": 10730}</field>
+    </record>
+
+    <record id="component_crose_ai" model="crose.component">
+        <field name="name">Crose AI</field>
+        <field name="component_type">ai</field>
+        <field name="host">crose-ai</field>
+        <field name="port">8000</field>
+        <field name="url">http://crose-ai:8000/health</field>
+        <field name="metadata"></field>
+    </record>
+
+    <record id="component_registry_stage" model="crose.component">
+        <field name="name">Registry Stage</field>
+        <field name="component_type">npm</field>
+        <field name="host">verdaccio-staging</field>
+        <field name="port">4873</field>
+        <field name="url">http://verdaccio-staging:4873</field>
+        <field name="metadata"></field>
+    </record>
+
+    <record id="component_registr_prod" model="crose.component">
+        <field name="name">Registry Prod</field>
+        <field name="component_type">npm</field>
+        <field name="host">verdaccio-prod</field>
+        <field name="port">4873</field>
+        <field name="url">http://verdaccio-prod:4873</field>
+        <field name="metadata"></field>
+    </record>
+
+
+</odoo>

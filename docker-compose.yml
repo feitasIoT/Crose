@@ -1,0 +1,175 @@
+services:
+  crose-db:
+    image: pgvector/pgvector:0.8.2-pg14-trixie
+    restart: always
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+    volumes:
+      - ./data/db/init/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./data/db/data:/var/lib/postgresql/data
+    networks:
+      - crose-net
+
+  crose-web:
+    build: 
+      context: .
+      dockerfile: ./crose/Dockerfile
+    depends_on:
+      - crose-db
+      - crose-ai
+    ports:
+      - "8069:8069"
+    restart: always
+    volumes:
+      - ./data/crose/config/odoo.conf:/etc/odoo/odoo.conf
+      - ./data/crose/data:/var/lib/odoo
+      - ./crose:/mnt/extra-addons/crose
+      - ./data/verdaccio/staging/storage:/mnt/verdaccio-staging:ro
+      - ./data/verdaccio/production/storage:/mnt/verdaccio-prod:rw
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+      - DB_NAME=crose
+    networks:
+      - crose-net
+
+  crose-ai:
+    build:
+      context: .
+      dockerfile: ./ai/Dockerfile
+    restart: always
+    volumes:
+      - ai_models:/root/.cache/torch
+    ports:
+      - "8000:8000"
+    networks:
+      - crose-net
+
+  gmqtt:
+    build:
+      context: ./gmqtt
+      dockerfile: Dockerfile
+    working_dir: /gmqtt_data
+    restart: always
+    ports:
+      - "1883:1883"
+      - "8883:8883"
+      - "8082:8082"
+      - "8083:8083"
+      - "8084:8084"
+    volumes:
+      - ./data/gmqtt/conf:/etc/gmqtt
+      - ./data/gmqtt/data:/gmqtt_data
+    command: ["gmqttd", "start", "-c", "/etc/gmqtt/gmqttd.yml"]
+    networks:
+      - crose-net
+
+  nodered:
+    image: nodered/node-red-dev:5.0.0-beta.4
+    restart: always
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./data/nodered/data:/data
+    networks:
+      - crose-net
+
+  nodered-staging:
+    image: nodered/node-red-dev:5.0.0-beta.4
+    restart: always
+    ports:
+      - "11881:1880"
+    volumes:
+      - ./data/nodered-staging/data:/data
+    networks:
+      - crose-net
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--appendonly", "yes", "--save", "60", "1", "--loglevel", "warning"]
+    volumes:
+      - ./data/redis/data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - crose-net
+
+  iotdb:
+    image: apache/iotdb:2.0.7-standalone
+    hostname: iotdb
+    container_name: iotdb
+    restart: always
+    privileged: true
+    ports:
+      - "6667:6667"
+      - "18883:1883"
+    environment:
+      - cn_internal_address=127.0.0.1
+      - cn_internal_port=10710
+      - cn_consensus_port=10720
+      - cn_seed_config_node=127.0.0.1:10710
+      - dn_rpc_address=0.0.0.0
+      - dn_internal_address=127.0.0.1
+      - dn_rpc_port=6667
+      - dn_internal_port=10730
+      - dn_mpp_data_exchange_port=10740
+      - dn_schema_region_consensus_port=10750
+      - dn_data_region_consensus_port=10760
+      - dn_seed_config_node=127.0.0.1:10710
+    volumes:
+      - iotdb_datas:/iotdb/data
+      - iotdb_logs:/iotdb/logs
+      - ./data/iotdb/conf/iotdb-system.properties:/iotdb/conf/iotdb-system.properties
+    networks:
+      - crose-net
+
+  verdaccio-staging:
+    image: verdaccio/verdaccio:latest
+    container_name: verdaccio-staging
+    restart: always
+    ports:
+      - "4873:4873"
+    volumes:
+      - ./data/verdaccio/staging/conf:/verdaccio/conf
+      - ./data/verdaccio/staging/storage:/verdaccio/storage
+    networks:
+      - crose-net
+
+  verdaccio-prod:
+    image: verdaccio/verdaccio:latest
+    container_name: verdaccio-prod
+    restart: always
+    ports:
+      - "4874:4873"
+    volumes:
+      - ./data/verdaccio/production/conf:/verdaccio/conf
+      - ./data/verdaccio/production/storage:/verdaccio/storage
+    networks:
+      - crose-net
+
+  crose-nas:
+    image: dperson/samba
+    environment:
+      - SHARE=data;/share;yes;no;no;guest
+    volumes:
+      - ./data/samba/my_data:/share
+
+
+volumes:
+  ai_models:
+  iotdb_datas:
+  iotdb_logs:
+  
+networks:
+  crose-net:
+    driver: bridge

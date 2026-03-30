@@ -1,0 +1,25 @@
+device_id: {{record.id}}
+mqtt:
+  broker_url: tcp://192.168.1.15:1883
+  username: "feitas"
+  password: "12345678"
+  client_id: "mygoagent-pi-001"
+  topic_cmd: "agent/pi-001/cmd"
+  topic_status: "agent/pi-001/status"
+  tls_insecure: false
+node_red:
+  base_url: "http://localhost:1880"
+  token: ""
+  api_version: "v2"
+systemd:
+  user: "feitas"
+  group: "feitas"
+  node_red_cmd: "node-red"
+  instances_base_dir: "/home/feitas/.node-red-instances"
+  env_dir: "/etc/nodered"
+  service_path: "/etc/systemd/system/nodered@.service"
+  working_dir: "/home/feitas"
+http:
+  listen_addr: "0.0.0.0:18080"
+  token: ""
+

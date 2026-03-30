@@ -1,0 +1,50 @@
+.feitas_iot_status_dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    animation: feitas_iot_status_blink 1.2s infinite ease-in-out;
+}
+
+.feitas_iot_status_online {
+    background: #28a745;
+}
+
+.feitas_iot_status_offline {
+    background: #6c757d;
+}
+
+.feitas_iot_status_error {
+    background: #dc3545;
+}
+
+.feitas_iot_instance_kanban_card {
+    border: 0 !important;
+    box-shadow: none !important;
+    background: var(--o-view-background-color, #fff) !important;
+}
+
+.feitas_iot_instance_kanban_actions .btn {
+    color: var(--o-main-text-color, #212529);
+    opacity: 0.75;
+}
+
+.feitas_iot_instance_kanban_actions .btn:hover {
+    opacity: 1;
+}
+
+.feitas_iot_dashboard_gauges .progress {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.feitas_iot_dashboard_kpi_value {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+@keyframes feitas_iot_status_blink {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.25; transform: scale(0.75); }
+    100% { opacity: 1; transform: scale(1); }
+}

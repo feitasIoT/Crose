@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+
+        <record id="view_fts_nr_flow_param_tree" model="ir.ui.view">
+            <field name="name">fts.nr.flow.param.tree</field>
+            <field name="model">fts.nr.flow.param</field>
+            <field name="arch" type="xml">
+                <list string="应用参数" editable="bottom">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="value"/>
+                    <field name="description"/>
+                    <field name="flow_id" optional="hide"/>
+                    <field name="model_id" optional="hide"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_fts_nr_flow_param_form" model="ir.ui.view">
+            <field name="name">fts.nr.flow.param.form</field>
+            <field name="model">fts.nr.flow.param</field>
+            <field name="arch" type="xml">
+                <form string="应用参数">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="type"/>
+                            </group>
+                            <group>
+                                <field name="value"/>
+                                <field name="description"/>
+                            </group>
+                            <group>
+                                <field name="flow_id"/>
+                                <field name="model_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

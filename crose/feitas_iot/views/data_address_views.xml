@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fts_data_address_tree" model="ir.ui.view">
+        <field name="name">fts.data.address.tree</field>
+        <field name="model">fts.data.address</field>
+        <field name="arch" type="xml">
+            <list string="Addresses" editable="bottom">
+                <field name="unitid"/>
+                <field name="address"/>
+                <field name="length"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_fts_data_address" model="ir.actions.act_window">
+        <field name="name">Addresses</field>
+        <field name="res_model">fts.data.address</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('model_id', '=', active_id)]</field>
+        <field name="context">{'default_model_id': active_id}</field>
+    </record>
+</odoo>

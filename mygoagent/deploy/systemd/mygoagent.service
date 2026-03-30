@@ -1,0 +1,18 @@
+[Unit]
+Description=mygoagent (MQTT -> Node-RED orchestrator)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=feitas
+Group=feitas
+WorkingDirectory=/home/feitas/crose_agent
+Environment=CONFIG=/home/feitas/crose_agent/config.yaml
+ExecStart=/home/feitas/crose_agent/agent -config ${CONFIG}
+Restart=on-failure
+RestartSec=3
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target

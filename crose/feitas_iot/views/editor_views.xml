@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_node_red_editor_client" model="ir.actions.client">
+        <field name="name">Node-RED Editor</field>
+        <field name="tag">node_red.editor</field>
+        <field name="target">main</field>
+    </record>
+
+    <record id="action_node_red_logs_client" model="ir.actions.client">
+        <field name="name">Node-RED Logs</field>
+        <field name="tag">feitas_iot.nodered_logs</field>
+        <field name="target">new</field>
+        <field name="context">{"dialog_size": "xl", "footer": false}</field>
+    </record>
+
+</odoo>
