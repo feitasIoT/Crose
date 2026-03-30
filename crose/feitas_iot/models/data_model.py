@@ -1,4 +1,5 @@
 import base64
+import contextlib
 import json
 import math
 import logging
@@ -266,7 +267,21 @@ class DataModel(models.Model):
         return start_ts, end_ts, count_sql, result_sql
 
     def _get_iotdb_connection_params(self):
-        return "192.168.0.104", "6667", "root", "root"
+        iotdb = self.env["crose.component"].search([("component_type", "=", "iotdb"), ("status", "=", "online")], limit=1)
+        if not iotdb:
+            iotdb = self.env["crose.component"].search([("component_type", "=", "iotdb")], limit=1)
+        if not iotdb:
+            raise ValidationError("未找到在线的 IoTDB 组件，请先在系统组件中添加并上线 IoTDB")
+        host = iotdb.host or "iotdb"
+        port = iotdb.port or 6667
+        metadata = {}
+        if iotdb.metadata:
+            with contextlib.suppress(Exception):
+                metadata = json.loads(iotdb.metadata)
+        # TODO：password encryption
+        username = metadata.get("username", "root")
+        password = metadata.get("password", "root")
+        return host, str(port), username, password
 
     def _execute_iotdb_query(self, sql):
         if not isinstance(sql, str):
@@ -317,8 +332,7 @@ class DataModel(models.Model):
             "tables": [],
             "isVisible": True,
         }
-        _logger.warning(str(sheet))
-        #{'id': 'sheet1', 'name': 'Sheet1', 'colNumber': 26, 'rowNumber': 100, 'cells': {'A1': 'Time', 'B1': 'root.__system.password_history._root.password', 'C1': 'root.__system.password_history._root.oldPassword', 'D1': 'root.factory01.machine01.high', 'E1': 'root.factory01.machine01.total', 'F1': 'root.factory01.machine01.task', 'G1': 'root.factory01.machine01.low', 'H1': 'root.factory01.machine01.pass', 'I1': 'root.factory01.machine01.spec', 'A2': '1772719740000', 'B2': '', 'C2': '', 'D2': '22.0', 'E2': '58.0', 'F2': 'BK26-38', 'G2': '5.0', 'H2': '53.0', 'I2': 'WPC710三层', 'A3': '1773063060000', 'B3': '', 'C3': '', 'D3': '0.0', 'E3': '0.0', 'F3': 'BK26-38', 'G3': '0.0', 'H3': '0.0', 'I3': 'WPC710三层', 'A4': '1773065040000', 'B4': '', 'C4': '', 'D4': '0.0', 'E4': '0.0', 'F4': 'BK26-38', 'G4': '0.0', 'H4': '0.0', 'I4': 'WPC710三层', 'A5': '1774774316043', 'B5': 'HIM~1��լ�n{��t���VV^�svw�', 'C5': '', 'D5': '', 'E5': '', 'F5': '', 'G5': '', 'H5': '', 'I5': ''}, 'styles': {}, 'formats': {}, 'borders': {}, 'cols': {}, 'rows': {}, 'merges': [], 'conditionalFormats': [], 'dataValidationRules': [], 'figures': [], 'tables': [], 'isVisible': True} 
+        
         data = {
             "version": SPREADSHEET_VERSION,
             "sheets": [sheet],
