@@ -5,9 +5,6 @@ aidev/*
 
 data/crose/data/*
 data/db/data/*
-data/iotdb/conf/*
-data/iotdb/data/*
-data/iotdb/logs/*
 data/nodered/data/*
 data/nodered-staging/*
 data/redis/data/*
