@@ -28,6 +28,15 @@
         <field name="metadata">{"admin_path": "/admin"}</field>
     </record>
 
+    <record id="component_nodered_staging" model="crose.component">
+        <field name="name">Node-RED Staging</field>
+        <field name="component_type">nodered</field>
+        <field name="host">nodered-staging</field>
+        <field name="port">1880</field>
+        <field name="url">http://nodered-staging:1880</field>
+        <field name="metadata">{"admin_path": "/admin"}</field>
+    </record>
+
     <record id="component_iotdb" model="crose.component">
         <field name="name">IoT DB</field>
         <field name="component_type">iotdb</field>
@@ -62,6 +71,15 @@
         <field name="port">4873</field>
         <field name="url">http://verdaccio-prod:4873</field>
         <field name="metadata"></field>
+    </record>
+
+    <record id="component_redis" model="crose.component">
+        <field name="name">Redis</field>
+        <field name="component_type">redis</field>
+        <field name="host">redis</field>
+        <field name="port">6379</field>
+        <field name="url"></field>
+        <field name="metadata">{"db": 0}</field>
     </record>
 
 

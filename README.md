@@ -41,6 +41,7 @@ You will find 10 containers started:
 ### Getting Started
 
 - Access via browser (Chrome, Edge, etc.): http://ip:8069
+- Username: admin, Password: crose
 
 ## 📅 Key Milestones
 

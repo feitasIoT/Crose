@@ -39,6 +39,7 @@ docker-compose up -d --build
 ### 体验
 
 - 用谷歌、Edge等浏览器访问：http://ip:8069
+- 用户名：admin， 密码：crose
 
 ## 📅 里程碑
 

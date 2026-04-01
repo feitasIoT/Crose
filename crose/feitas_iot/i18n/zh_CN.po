@@ -1,0 +1,2378 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* feitas_iot
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260324\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-31 02:40+0000\n"
+"PO-Revision-Date: 2026-03-31 02:40+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_ai_model_form
+msgid ""
+"<i class=\"fa fa-exclamation-triangle\"/> This model is not active yet. "
+"Upload the archive and click \"Deploy and Activate Model\"."
+msgstr ""
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_nr_flow_kanban
+msgid "<i class=\"fa fa-fire me-1\" title=\"Heat\"/>"
+msgstr ""
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_ai_model_form
+msgid ""
+"<i class=\"fa fa-info-circle\"/> This model is currently active and can be "
+"used by the system."
+msgstr ""
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_crose_component_form
+msgid "<strong>Check failed:</strong>"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "A remote instance must have an edge agent before it can be started."
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_fts_ai_model
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_ai_model_form
+msgid "AI Model"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.actions.act_window,name:feitas_iot.action_fts_ai_model
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_ai_model
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_ai_model_list
+msgid "AI Models"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__crose_component__component_type__ai
+msgid "AI Service"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/utils.py:0
+msgid "AI embedding service call failed: %(error)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+msgid "AI service URL is not configured."
+msgstr "AI服务器URL没有配置。"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__message_needaction
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__message_needaction
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__message_needaction
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/ai.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_model__is_active
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_mqtt_user__status__active
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_mqtt_user_search
+msgid "Active"
+msgstr "有效"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__activity_ids
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__activity_ids
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__activity_ids
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__activity_ids
+msgid "Activities"
+msgstr "活动"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__activity_exception_decoration
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__activity_exception_decoration
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__activity_exception_decoration
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__activity_state
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__activity_state
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__activity_state
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__activity_type_icon
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__activity_type_icon
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__activity_type_icon
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_address.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_address__address
+msgid "Address"
+msgstr "地址"
+
+#. module: feitas_iot
+#: model:ir.actions.act_window,name:feitas_iot.action_fts_data_address
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__address_ids
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_data_address_tree
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_data_model_form
+msgid "Addresses"
+msgstr "地址"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_agent_flow_line__agent_id
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_edge_agent_form
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_instance_form
+msgid "Agent"
+msgstr "代理"
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_agent_flow_line
+msgid "Agent Flow Line"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.actions.act_window,name:feitas_iot.action_fts_agent_release
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_agent_release
+msgid "Agent Package"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__agent_port
+msgid "Agent Port"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/controllers/download.py:0
+msgid "Agent address is not configured"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/controllers/download.py:0
+msgid "Agent does not exist"
+msgstr ""
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_edge_agent_kanban
+msgid "Agent:"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/xml/overview_templates.xml:0
+#: model:ir.actions.act_window,name:feitas_iot.action_fts_edge_agent
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_iot_nr_agent
+msgid "Agents"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "Application Complete"
+msgstr ""
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_nr_flow_param_form
+msgid "Application Parameter"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__app_param_ids
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_nr_flow_param_tree
+msgid "Application Parameters"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: code:addons/feitas_iot/models/nr_instance.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__app_ids
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__nr_flow_ids
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_iot_nr_flow
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_library_flow
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_data_model_form
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_edge_agent_form
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_instance_kanban
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_instance_tree
+msgid "Applications"
+msgstr ""
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_instance_form
+msgid "Apply"
+msgstr "应用"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_data_model__state__approval
+msgid "Approval"
+msgstr "审批"
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_crose_nr_package_form
+msgid ""
+"Are you sure you want to publish this package from Staging to Production?"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__message_attachment_count
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__message_attachment_count
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__message_attachment_count
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__message_attachment_count
+msgid "Attachment Count"
+msgstr "附件数"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+msgid "Attachment not found: config.yaml.template"
+msgstr ""
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_edge_agent_form
+msgid "Basic Configuration"
+msgstr "基础配置"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_nr_flow_param__type__bool
+msgid "Boolean"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/js/editor_embed.js:0
+msgid "Broker Status Changed"
+msgstr "Broker状态变化"
+
+#. module: feitas_iot
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_iot_root
+msgid "CRose"
+msgstr "CRose"
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_crose_component_form
+msgid "Check Status"
+msgstr "检查状态"
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/xml/editor_templates.xml:0
+msgid "Clear"
+msgstr "清空"
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/xml/editor_templates.xml:0
+msgid "Close"
+msgstr "关闭"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_data_model__protocol__coap
+msgid "CoAP"
+msgstr "CoAP"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__name
+msgid "Code"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_tag.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_tag__color
+msgid "Color Index"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__agent_cmd
+msgid "Command"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_nr_package.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_nr_package__component_id
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_crose_nr_package_search
+msgid "Component"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_component__name
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_crose_component_form
+msgid "Component Name"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_component__component_type
+msgid "Component Type"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_node.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_node__config_node_ids
+msgid "Config Nodes"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_crose_config
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_nr_node_form
+msgid "Configuration"
+msgstr "配置"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__config
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_edge_agent_form
+msgid "Configuration File"
+msgstr "配置文件"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_node.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_node__item_ids
+msgid "Configuration Items"
+msgstr "配置项"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "Connection Error"
+msgstr "连接错误"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "Connection Failed"
+msgstr "连接失败"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "Connection Successful"
+msgstr "连接成功"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/mqtt_user.py:0
+#: model:ir.model,name:feitas_iot.model_res_partner
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_user__partner_id
+msgid "Contact"
+msgstr "联系人"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_flow.py:0
+#: code:addons/feitas_iot/models/nr_node.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__content
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_node__content
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_nr_flow_form
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_nr_node_form
+msgid "Content"
+msgstr "内容"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/mqtt_topic.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_topic__create_date
+msgid "Created On"
+msgstr "创建于"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_agent_flow_line__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_component__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_nr_package__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_dataset__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_model__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_training__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_address__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_app__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_log__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_knowledge__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_topic__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_user__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_node_item__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow_param__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_node__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_tag__create_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_instance_flow_line__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_agent_flow_line__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_component__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_nr_package__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_dataset__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_model__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_training__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_address__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_app__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_log__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_knowledge__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_user__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_node_item__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow_param__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_node__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_tag__create_date
+#: model:ir.model.fields,field_description:feitas_iot.field_instance_flow_line__create_date
+msgid "Created on"
+msgstr "创建于"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+msgid "Current Topic"
+msgstr "当前主题"
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_fts_data_app
+msgid "Data App"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_iot_data
+msgid "Data Center"
+msgstr "数据中心"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model,name:feitas_iot.model_fts_data_model
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_address__model_id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_app__model_id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_log__model_id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__data_model_id
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_data_model_form
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_data_model_search
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_data_model_tree
+msgid "Data Model"
+msgstr "数据建模"
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_fts_data_address
+msgid "Data Model Address"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_fts_data_log
+msgid "Data Model History Log"
+msgstr ""
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_data_log_tree
+msgid "Data Model Logs"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.actions.act_window,name:feitas_iot.action_fts_data_model
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_data_model
+msgid "Data Modeling"
+msgstr "数据建模"
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_data_model_form
+msgid "Data Query"
+msgstr "数据查询"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__data_structure
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_data_model_form
+msgid "Data Structure"
+msgstr "数据结构"
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_fts_ai_dataset
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_ai_dataset_form
+msgid "Dataset"
+msgstr "数据集"
+
+#. module: feitas_iot
+#: model:ir.actions.act_window,name:feitas_iot.action_fts_ai_dataset
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_ai_dataset
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_ai_dataset_list
+msgid "Datasets"
+msgstr "数据集"
+
+#. module: feitas_iot
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_ai_root
+msgid "Deep Learning"
+msgstr "深度学习"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_data_model__tcp_type__default
+msgid "Default"
+msgstr "默认"
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_ai_model_form
+msgid "Deploy and Activate Model"
+msgstr "部署并激活模型"
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_edge_agent_form
+msgid "Deployment Command"
+msgstr "部署命令"
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_edge_agent_form
+msgid "Deployment Information"
+msgstr "部署信息"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/ai.py:0
+msgid "Deployment Successful"
+msgstr "部署成功"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: code:addons/feitas_iot/models/nr_flow.py:0
+#: code:addons/feitas_iot/models/nr_flow_param.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__description
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__description
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow_param__description
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_nr_flow_form
+msgid "Description"
+msgstr "描述"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/knowledge.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_knowledge__description
+msgid "Details"
+msgstr "细节"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_agent_flow_line__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_component__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_nr_package__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_dataset__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_model__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_training__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_address__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_app__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_log__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_knowledge__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mcp_tool_registry__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_topic__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_user__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_node_item__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow_param__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_node__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_tag__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_instance_flow_line__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_mail_thread__display_name
+#: model:ir.model.fields,field_description:feitas_iot.field_res_partner__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/bundle/actions/data_model_spreadsheet_action.xml:0
+msgid "Download"
+msgstr "下载"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_data_model__state__draft
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_data_model_search
+msgid "Draft"
+msgstr "草稿"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "Duplicate node IDs exist in the flow, so it cannot be applied."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+#: model:ir.model,name:feitas_iot.model_fts_edge_agent
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__edge_agent_id
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_edge_agent_tree
+msgid "Edge Agent"
+msgstr "边缘代理"
+
+#. module: feitas_iot
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_iot_edge
+msgid "Edge Computing"
+msgstr "边缘计算"
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_instance_form
+msgid "Editor"
+msgstr "编辑器"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_data_model__state__effective
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_data_model_search
+msgid "Effective"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_mail_thread
+msgid "Email Thread"
+msgstr "邮件会话"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__query_end_time
+msgid "End Time"
+msgstr "结束时间"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_nr_package.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_nr_package__environment
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_crose_nr_package_search
+msgid "Environment"
+msgstr "环境"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_nr_flow_param__type__env
+msgid "Environment Variable"
+msgstr "环境变量"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__crose_component__status__error
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_edge_agent__status__error
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_nr_instance__status__error
+msgid "Error"
+msgstr "错误"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_component__error_reason
+msgid "Error Reason"
+msgstr "错误原因"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "Failed to call the GMQTT publish API: %(error)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+msgid "Failed to create MQTT user for %(partner)s: %(error)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/ai.py:0
+msgid "Failed to extract the model archive: %(error)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+msgid "Failed to generate spreadsheet: %(error)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/bundle/actions/data_model_spreadsheet_action.js:0
+msgid "Failed to parse spreadsheet data"
+msgstr "解析电子表格数据失败"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/controllers/download.py:0
+msgid "Failed to read logs: %(error)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/agent_flow_line.py:0
+#: code:addons/feitas_iot/models/data_model.py:0
+#: code:addons/feitas_iot/models/instance_flow_line.py:0
+#: code:addons/feitas_iot/models/nr_node.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_agent_flow_line__flow_id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_app__flow_id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_node__flow_id
+#: model:ir.model.fields,field_description:feitas_iot.field_instance_flow_line__flow_id
+msgid "Flow"
+msgstr "流程"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__nr_id
+msgid "Flow ID"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: code:addons/feitas_iot/models/nr_instance.py:0
+#: model:ir.actions.act_window,name:feitas_iot.action_fts_nr_flow
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__flow_ids
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__flow_ids
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_instance_form
+msgid "Flows"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__message_follower_ids
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__message_follower_ids
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__message_follower_ids
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__message_partner_ids
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__message_partner_ids
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__message_partner_ids
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,help:feitas_iot.field_fts_data_model__activity_type_icon
+#: model:ir.model.fields,help:feitas_iot.field_fts_edge_agent__activity_type_icon
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_flow__activity_type_icon
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_instance__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_ai_model_form
+msgid "For example: paraphrase-multilingual-MiniLM-L12-v2"
+msgstr ""
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_edge_agent_form
+msgid "Generate"
+msgstr "生成"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+msgid "Generation Complete"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_data_model__protocol__http
+msgid "HTTP"
+msgstr "HTTP"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__has_message
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__has_message
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__has_message
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_flow.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__heat
+msgid "Heat"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_component__host
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__host
+msgid "Host"
+msgstr "主机名"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_agent_flow_line__id
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_component__id
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_nr_package__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_dataset__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_model__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_training__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_address__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_app__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_log__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_knowledge__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mcp_tool_registry__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_topic__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_user__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_node_item__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow_param__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_node__id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_tag__id
+#: model:ir.model.fields,field_description:feitas_iot.field_instance_flow_line__id
+#: model:ir.model.fields,field_description:feitas_iot.field_mail_thread__id
+#: model:ir.model.fields,field_description:feitas_iot.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: code:addons/feitas_iot/models/nr_instance.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__ip_address
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__ip_address
+msgid "IP Address"
+msgstr "IP地址"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__activity_exception_icon
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__activity_exception_icon
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__activity_exception_icon
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,help:feitas_iot.field_fts_data_model__activity_exception_icon
+#: model:ir.model.fields,help:feitas_iot.field_fts_edge_agent__activity_exception_icon
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_flow__activity_exception_icon
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_instance__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,help:feitas_iot.field_fts_data_model__message_needaction
+#: model:ir.model.fields,help:feitas_iot.field_fts_edge_agent__message_needaction
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_flow__message_needaction
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_instance__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,help:feitas_iot.field_fts_data_model__message_has_error
+#: model:ir.model.fields,help:feitas_iot.field_fts_edge_agent__message_has_error
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_flow__message_has_error
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_instance__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/instance_flow_line.py:0
+#: code:addons/feitas_iot/models/nr_flow.py:0
+#: code:addons/feitas_iot/models/nr_node.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__instance_id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_node__instance_id
+#: model:ir.model.fields,field_description:feitas_iot.field_instance_flow_line__instance_id
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_data_model_search
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_instance_form
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_nr_flow_search
+msgid "Instance"
+msgstr "实例"
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_instance_flow_line
+msgid "Instance Flow Line"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__instance_type
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_instance_search
+msgid "Instance Type"
+msgstr "实例类型"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/controllers/download.py:0
+msgid "Instance does not exist"
+msgstr "实例不存在。"
+
+#. module: feitas_iot
+#. odoo-javascript
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: code:addons/feitas_iot/static/src/xml/overview_templates.xml:0
+#: model:ir.actions.act_window,name:feitas_iot.action_fts_nr_instance
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_iot_nr_instance
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_edge_agent_kanban
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_edge_agent_tree
+msgid "Instances"
+msgstr "实例"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__query_interval
+msgid "Interval (Seconds)"
+msgstr "间隔(秒)"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_data_model__state__invalid
+msgid "Invalid"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/controllers/download.py:0
+msgid "Invalid parameter: agent_id"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/controllers/download.py:0
+msgid "Invalid parameter: instance_id"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_fts_nr_instance
+msgid "IoT Instance"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__crose_component__component_type__iotdb
+msgid "IoTDB"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__message_is_follower
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__message_is_follower
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__message_is_follower
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: code:addons/feitas_iot/models/nr_flow.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__is_template
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__is_template
+msgid "Is Template"
+msgstr "是模板"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_node_item__value_type__json
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_nr_flow_param__type__json
+msgid "JSON"
+msgstr "JSON"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/knowledge.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_knowledge__json_source
+msgid "JSON Source"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_node_item__key
+msgid "Key"
+msgstr "键"
+
+#. module: feitas_iot
+#: model:ir.actions.act_window,name:feitas_iot.action_fts_knowledge
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_knowledge
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_knowledge_form
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_knowledge_tree
+msgid "Knowledge Base"
+msgstr "知识库"
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_fts_knowledge
+msgid "Knowledge Base for Node-RED"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_component__last_check_time
+msgid "Last Check Time"
+msgstr "上次检查时间"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_agent_flow_line__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_component__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_nr_package__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_dataset__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_model__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_training__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_address__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_app__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_log__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_knowledge__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_topic__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_user__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_node_item__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow_param__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_node__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_tag__write_uid
+#: model:ir.model.fields,field_description:feitas_iot.field_instance_flow_line__write_uid
+msgid "Last Updated by"
+msgstr "最近更新人"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_agent_flow_line__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_component__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_nr_package__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_dataset__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_model__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_training__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_address__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_app__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_log__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_knowledge__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_topic__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_user__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_node_item__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow_param__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_node__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_tag__write_date
+#: model:ir.model.fields,field_description:feitas_iot.field_instance_flow_line__write_date
+msgid "Last Updated on"
+msgstr "最近更新时间"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_address.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_address__length
+msgid "Length"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/xml/editor_templates.xml:0
+#: code:addons/feitas_iot/static/src/xml/overview_templates.xml:0
+msgid "Loading..."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/ai.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_model__local_path
+msgid "Local Extract Path"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_nr_instance__instance_type__local
+msgid "Local Instance"
+msgstr ""
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_ai_model_form
+msgid "Local Status"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model.fields,help:feitas_iot.field_fts_data_model__nr_instance_id
+msgid "Local instance responsible for data processing"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-javascript
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+#: code:addons/feitas_iot/static/src/js/editor_embed.js:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__log_ids
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_data_model_form
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_edge_agent_form
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_edge_agent_kanban
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_instance_kanban
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_instance_tree
+msgid "Logs"
+msgstr "日志"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+msgid "Logs - %(name)s"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_fts_mcp_tool_registry
+msgid "MCP Tool Registry"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_data_model__protocol__mqtt
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_mqtt_root
+msgid "MQTT"
+msgstr "MQTT"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__mqtt_broker_id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_topic__broker_id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_user__broker_id
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_mqtt_user_search
+msgid "MQTT Broker"
+msgstr ""
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_edge_agent_form
+msgid "MQTT Configuration"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__crose_component__component_type__mqtt
+msgid "MQTT Service"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model,name:feitas_iot.model_fts_mqtt_topic
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__mqtt_topic_id
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_mqtt_topic_form
+msgid "MQTT Topic"
+msgstr "MQTT主题"
+
+#. module: feitas_iot
+#: model:ir.actions.act_window,name:feitas_iot.action_fts_mqtt_topic
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_mqtt_topic_tree
+msgid "MQTT Topics"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_fts_mqtt_user
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_mqtt_user_tree
+msgid "MQTT User"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/res_partner.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_res_partner__mqtt_username
+#: model:ir.model.fields,field_description:feitas_iot.field_res_users__mqtt_username
+msgid "MQTT Username"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.actions.act_window,name:feitas_iot.action_fts_mqtt_user
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_mqtt_user
+msgid "MQTT Users"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+msgid "MQTT connection parameters have been generated:"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/mqtt_topic.py:0
+msgid "MQTT topics have been synchronized."
+msgstr "MQTT主题同步完成。"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__message_has_error
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__message_has_error
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__message_has_error
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/xml/overview_templates.xml:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__message_ids
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__message_ids
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__message_ids
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_component__metadata
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_crose_component_form
+msgid "Metadata"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/controllers/download.py:0
+msgid "Missing parameter: instance_id or agent_id"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_data_model__protocol__mobus-rtu
+msgid "Modbus-RTU"
+msgstr "Modbus-RTU"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_data_model__protocol__mobus-tcp
+msgid "Modbus-TCP"
+msgstr "Modbus-TCP"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/ai.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_model__model_file
+msgid "Model Archive (.zip)"
+msgstr ""
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_ai_model_form
+msgid "Model Configuration"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.actions.act_window,name:feitas_iot.action_fts_ai_training
+#: model:ir.model,name:feitas_iot.model_fts_ai_training
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_ai_training
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_ai_training_form
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_ai_training_list
+msgid "Model Training"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__my_activity_date_deadline
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__my_activity_date_deadline
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__my_activity_date_deadline
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: code:addons/feitas_iot/models/nr_instance.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__npm_registry_id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__npm_registry_id
+#: model:ir.model.fields.selection,name:feitas_iot.selection__crose_component__component_type__npm
+msgid "NPM Registry"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+msgid "NPM registry URL is not configured."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__nr_node
+msgid "NR Node"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/ai.py:0
+#: code:addons/feitas_iot/models/data_model.py:0
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: code:addons/feitas_iot/models/knowledge.py:0
+#: code:addons/feitas_iot/models/node_item.py:0
+#: code:addons/feitas_iot/models/nr_flow.py:0
+#: code:addons/feitas_iot/models/nr_instance.py:0
+#: code:addons/feitas_iot/models/nr_node.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_dataset__name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_model__name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_ai_training__name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_app__name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_knowledge__name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_topic__name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_user__name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_node_item__name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__name
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_node__name
+msgid "Name"
+msgstr "名称"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+msgid "New"
+msgstr "新的"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__activity_date_deadline
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__activity_date_deadline
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__activity_date_deadline
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__activity_summary
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__activity_summary
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__activity_summary
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__activity_type_id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__activity_type_id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__activity_type_id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "No applications are configured."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "No instances were selected."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+msgid ""
+"No online IoTDB component was found. Please create and activate one in "
+"System Components first."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/xml/overview_templates.xml:0
+msgid "No pending items"
+msgstr "没有待处理项目"
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/xml/overview_templates.xml:0
+msgid "No recent activity"
+msgstr "没有最近活动"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+msgid "No status check method found for component type %(type)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/node_item.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_node_item__node_id
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_nr_node_form
+msgid "Node"
+msgstr "节点"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_node__nr_id
+msgid "Node ID"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_fts_node_item
+msgid "Node Item"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__crose_component__component_type__nodered
+msgid "Node-RED"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+#: model:ir.actions.client,name:feitas_iot.action_node_red_editor_client
+msgid "Node-RED Editor"
+msgstr "Node-RED编辑器"
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_fts_nr_flow
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_nr_flow_form
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_nr_flow_tree
+msgid "Node-RED Flow"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_fts_nr_flow_param
+msgid "Node-RED Flow Parameter"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.actions.client,name:feitas_iot.action_node_red_logs_client
+msgid "Node-RED Logs"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_fts_nr_node
+msgid "Node-RED Node"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_crose_nr_package
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_crose_nr_package_form
+msgid "Node-RED Package"
+msgstr ""
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_crose_nr_package_tree
+msgid "Node-RED Packages"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_fts_nr_tag
+msgid "Node-RED Tag"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+msgid "Node-RED URL is not configured."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_flow.py:0
+#: model:ir.actions.act_window,name:feitas_iot.action_fts_nr_node
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_iot_nr_node
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_nr_flow_tree
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_nr_node_tree
+msgid "Nodes"
+msgstr "节点"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/node_item.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_node_item__note
+msgid "Note"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_nr_flow_param__type__num
+msgid "Number"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__message_needaction_counter
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__message_needaction_counter
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__message_needaction_counter
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__message_has_error_counter
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__message_has_error_counter
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__message_has_error_counter
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,help:feitas_iot.field_fts_data_model__message_needaction_counter
+#: model:ir.model.fields,help:feitas_iot.field_fts_edge_agent__message_needaction_counter
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_flow__message_needaction_counter
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_instance__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,help:feitas_iot.field_fts_data_model__message_has_error_counter
+#: model:ir.model.fields,help:feitas_iot.field_fts_edge_agent__message_has_error_counter
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_flow__message_has_error_counter
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_instance__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__os_version
+msgid "OS Distribution"
+msgstr "系统发行版"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__crose_component__status__offline
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_edge_agent__status__offline
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_nr_instance__status__offline
+msgid "Offline"
+msgstr "离线"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__crose_component__status__online
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_edge_agent__status__online
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_nr_instance__status__online
+msgid "Online"
+msgstr "在线"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: model:ir.model.fields,help:feitas_iot.field_fts_edge_agent__instance_id
+msgid "Only local instances can be selected."
+msgstr "只能选择本地实例。"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/ai.py:0
+msgid "Only one model can be active at a time."
+msgstr ""
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_instance_kanban
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_instance_tree
+msgid "Open"
+msgstr "打开"
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/xml/overview_templates.xml:0
+#: model:ir.actions.client,name:feitas_iot.action_fts_iot_overview
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_iot_overview
+msgid "Overview"
+msgstr "概览"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_nr_package.py:0
+msgid ""
+"Package %(name)s v%(version)s is not in the Staging environment and cannot "
+"be published."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_nr_package.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_nr_package__name
+msgid "Package Name"
+msgstr "包名"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_nr_package.py:0
+msgid "Package directory not found in the Staging environment: %(path)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_nr_package.py:0
+msgid "Package file not found in the Staging environment: %(path)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+#: model:ir.actions.act_window,name:feitas_iot.action_crose_nr_package
+msgid "Packages"
+msgstr "包"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_flow_param.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow_param__name
+msgid "Parameter Name"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_flow.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__param_ids
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_nr_flow_form
+msgid "Parameters"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_topic__partner_ids
+msgid "Partners"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__smb_password
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__password
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_user__password
+msgid "Password"
+msgstr "密码"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_mqtt_user__status__pause
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_mqtt_user_search
+msgid "Paused"
+msgstr "暂停"
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/xml/overview_templates.xml:0
+msgid "Platform"
+msgstr "平台"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+msgid "Please enter a valid interval in seconds."
+msgstr "请输入一个合理的间隔秒数。"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+msgid ""
+"Please provide the above parameters to the device or client for "
+"configuration."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+msgid "Please select a start time."
+msgstr "请选择开始时间"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+#: code:addons/feitas_iot/models/data_model.py:0
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: code:addons/feitas_iot/models/nr_instance.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_component__port
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__tcp_port
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__port
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__port
+msgid "Port"
+msgstr "端口"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__crose_nr_package__environment__prod
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_crose_nr_package_search
+msgid "Production"
+msgstr "生产环境"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_flow.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__prompt
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_nr_flow_form
+msgid "Prompt"
+msgstr "提示词"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__protocol
+msgid "Protocol"
+msgstr "协议"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__provider_id
+msgid "Provider"
+msgstr "提供方"
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_crose_nr_package_form
+msgid "Publish"
+msgstr "发布"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "Published to %(topic)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+msgid "Query Complete"
+msgstr "查询完成"
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/bundle/actions/data_model_spreadsheet_action.js:0
+msgid "Query Result"
+msgstr "查询结果"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+msgid "Query failed: %(error)s"
+msgstr "查询失败: %(error)s"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_data_model__tcp_type__rtu-buffered
+msgid "RTU Buffered"
+msgstr "RTU Buffered"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_edge_agent__os_version__rasp
+msgid "Raspberry"
+msgstr "树莓派"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__crose_component__component_type__redis
+msgid "Redis"
+msgstr "Redis"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+msgid "Redis PING failed"
+msgstr "Redis PING失败"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_flow_param.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow_param__model_id
+msgid "Related Data Model"
+msgstr "相关数据模型"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_flow_param.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow_param__flow_id
+msgid "Related Flow"
+msgstr "相关流程"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__instance_id
+msgid "Related Instance"
+msgstr "相关实例"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_edge_agent_kanban
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_edge_agent_tree
+msgid "Remote Desktop"
+msgstr "远程桌面"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_nr_instance__instance_type__remote
+msgid "Remote Instance"
+msgstr "远程实例"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__partner_id
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_data_model_search
+msgid "Requester"
+msgstr "请求方"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__activity_user_id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__activity_user_id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__activity_user_id
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__activity_user_id
+msgid "Responsible User"
+msgstr "负责人"
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_instance_tree
+msgid "Restart"
+msgstr "重启"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__nr_instance_id
+msgid "Runtime Instance"
+msgstr "运行时实例"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model.fields,help:feitas_iot.field_fts_data_model__smb_share
+msgid "SMB shared directory path, for example: /share"
+msgstr "SMB共享目录路径，例如：/share"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_data_model__protocol__smb
+msgid "SMB2"
+msgstr "SMB2"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__serial_port
+msgid "Serial Port"
+msgstr "串口号"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+msgid "Server IP"
+msgstr "服务器IP"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__smb_share
+msgid "Shared Directory"
+msgstr "共享目录"
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/xml/overview_templates.xml:0
+msgid ""
+"Show the number of key platform resources, such as edge agents, application "
+"instances, and MQTT topics."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/xml/overview_templates.xml:0
+msgid ""
+"Show the runtime status of key platform components, including the MQTT "
+"Broker, NPM Registry, and local instances."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__slave_id
+msgid "Slave ID"
+msgstr "从站号"
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_data_model_form
+msgid "Spreadsheet"
+msgstr "电子表格"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__spreadsheet_data
+msgid "Spreadsheet Data"
+msgstr "电子表格数据"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__spreadsheet_file_name
+msgid "Spreadsheet File Name"
+msgstr "电子表格文件名"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__spreadsheet_binary_data
+msgid "Spreadsheet file"
+msgstr "电子表格文件"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__crose_nr_package__environment__staging
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_crose_nr_package_search
+msgid "Staging"
+msgstr ""
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_instance_form
+msgid "Start"
+msgstr "启动"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "Start Submitted"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__query_start_time
+msgid "Start Time"
+msgstr "开始时间"
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/xml/overview_templates.xml:0
+msgid "Statistics"
+msgstr "统计"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+#: code:addons/feitas_iot/models/data_model.py:0
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: code:addons/feitas_iot/models/mqtt_user.py:0
+#: code:addons/feitas_iot/models/nr_instance.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_component__status
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__state
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__status
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_mqtt_user__status
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__status
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_data_model_search
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_mqtt_user_search
+msgid "Status"
+msgstr "状态"
+
+#. module: feitas_iot
+#: model:ir.model.fields,help:feitas_iot.field_fts_data_model__activity_state
+#: model:ir.model.fields,help:feitas_iot.field_fts_edge_agent__activity_state
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_flow__activity_state
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_instance__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_nr_flow_param__type__str
+msgid "String"
+msgstr "字符串"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "Success: %(ok)s, Failed: %(fail)s"
+msgstr "成功：%(ok)s，失败：%(fail)s"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/mqtt_topic.py:0
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "Synchronization Complete"
+msgstr "同步完成"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_flow.py:0
+#: code:addons/feitas_iot/models/nr_node.py:0
+msgid "Synchronization Successful"
+msgstr "同步成功"
+
+#. module: feitas_iot
+#: model:ir.actions.server,name:feitas_iot.action_fts_nr_instance_sync_flows
+msgid "Synchronize Flow List"
+msgstr "同步流程列表"
+
+#. module: feitas_iot
+#: model:ir.actions.server,name:feitas_iot.action_sync_flow_to_knowledge
+#: model:ir.actions.server,name:feitas_iot.action_sync_node_to_knowledge
+msgid "Synchronize Knowledge Base"
+msgstr "同步知识库"
+
+#. module: feitas_iot
+#: model:ir.actions.server,name:feitas_iot.action_sync_mqtt_topics
+msgid "Synchronize MQTT Topics"
+msgstr "同步MQTT主题"
+
+#. module: feitas_iot
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_mqtt_topic_sync
+msgid "Synchronize Topics Now"
+msgstr "立即同步主题"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_flow.py:0
+msgid ""
+"Synchronized %(count)s flows to the knowledge base and completed "
+"vectorization."
+msgstr "同步 %(count)s 个流程到知识库并完成向量化。"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_node.py:0
+msgid ""
+"Synchronized %(count)s nodes to the knowledge base and completed "
+"vectorization."
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model,name:feitas_iot.model_crose_component
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_crose_component_form
+msgid "System Component"
+msgstr "系统组件"
+
+#. module: feitas_iot
+#: model:ir.actions.act_window,name:feitas_iot.action_crose_component
+#: model:ir.ui.menu,name:feitas_iot.menu_crose_component
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_crose_component_tree
+msgid "System Components"
+msgstr "系统组件"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+msgid "TCP Port"
+msgstr "TCP端口"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__tcp_type
+msgid "TCP Type"
+msgstr "TCP类型"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_tag.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_tag__name
+msgid "Tag"
+msgstr "标签"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_flow.py:0
+#: model:ir.actions.act_window,name:feitas_iot.action_fts_nr_tag
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__tag_ids
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_nr_tag
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_nr_tag_tree
+msgid "Tags"
+msgstr "标签"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__template_id
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_edge_agent_kanban
+msgid "Template"
+msgstr "模板"
+
+#. module: feitas_iot
+#: model:ir.actions.act_window,name:feitas_iot.action_fts_nr_flow_template
+msgid "Template Applications"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_library
+msgid "Template Library"
+msgstr "模板库"
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_data_model_form
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_fts_instance_tree
+msgid "Test"
+msgstr "测试"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_node_item__value_type__text
+msgid "Text"
+msgstr "文本"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "The Node-RED instance is reachable."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_nr_package.py:0
+msgid ""
+"The combination of package name and version must be unique within the same "
+"component."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/mqtt_user.py:0
+#: model:ir.model.constraint,message:feitas_iot.constraint_fts_mqtt_user_name_partner_unique
+msgid "The combination of username and contact must be unique!"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+msgid "The configuration has been generated from config.yaml.template."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+msgid "The data structure is not valid JSON."
+msgstr "数据结构不是有效的JSON格式。"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "The item value is not valid JSON: %(key)s (%(error)s)"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "The log action was not found. Please contact your administrator."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/ai.py:0
+msgid "The model has been deployed to %(path)s and activated."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+msgid "The query statement must be a string."
+msgstr "查询语句必须是字符串。"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "The server returned status code: %(code)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/bundle/actions/data_model_spreadsheet_action.js:0
+msgid "The spreadsheet has not finished initializing."
+msgstr "电子表格没有完成初始化。"
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/bundle/actions/data_model_spreadsheet_action.js:0
+msgid "The spreadsheet is open, but there are no visible cell values."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+msgid "The template content is empty: config.yaml.template"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+msgid "There are %(count)s rows in the selected time range."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/controllers/download.py:0
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid ""
+"This instance has no edge agent configured, so runtime logs cannot be read."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/xml/overview_templates.xml:0
+msgid "This section lists pending items that need attention."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/xml/overview_templates.xml:0
+msgid "This section shows the latest system activity."
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__thumbnail
+msgid "Thumbnail"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/xml/overview_templates.xml:0
+msgid "To Do"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-javascript
+#: code:addons/feitas_iot/static/src/xml/overview_templates.xml:0
+#: model:ir.ui.menu,name:feitas_iot.menu_fts_mqtt_topic
+msgid "Topics"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/node_item.py:0
+#: code:addons/feitas_iot/models/nr_flow.py:0
+#: code:addons/feitas_iot/models/nr_flow_param.py:0
+#: code:addons/feitas_iot/models/nr_node.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_node_item__value_type
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__type
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow_param__type
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_node__node_type
+msgid "Type"
+msgstr "类型"
+
+#. module: feitas_iot
+#: model:ir.model.fields,help:feitas_iot.field_fts_data_model__activity_exception_decoration
+#: model:ir.model.fields,help:feitas_iot.field_fts_edge_agent__activity_exception_decoration
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_flow__activity_exception_decoration
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_instance__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_component__url
+msgid "URL"
+msgstr "URL"
+
+#. module: feitas_iot
+#: model:ir.model.fields.selection,name:feitas_iot.selection__fts_edge_agent__os_version__ubuntu
+msgid "Ubuntu"
+msgstr "Ubuntu"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+msgid "Unable to connect to %(host)s:%(port)s - %(error)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/nr_instance.py:0
+msgid "Unable to connect to Node-RED: %(error)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+msgid "Unexpected AI service response: %(code)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+msgid "Unexpected HTTP status code: %(code)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+msgid "Unexpected NPM registry response: %(code)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_component.py:0
+msgid "Unexpected Node-RED response: %(code)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_address.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_address__unitid
+msgid "Unit ID"
+msgstr "站号"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/ai.py:0
+#: model:ir.model.fields,help:feitas_iot.field_fts_ai_model__model_file
+msgid ""
+"Upload a zip archive created from the folder downloaded from HuggingFace."
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__smb_username
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__username
+msgid "Username"
+msgstr "用户名"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/data_model.py:0
+#: code:addons/feitas_iot/models/nr_flow_param.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_app__value
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_log__value
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_node_item__value
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow_param__value
+msgid "Value"
+msgstr "值"
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/knowledge.py:0
+msgid "Vectorization failed: %(error)s"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/crose_nr_package.py:0
+#: code:addons/feitas_iot/models/edge_agent.py:0
+#: model:ir.model.fields,field_description:feitas_iot.field_crose_nr_package__version
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__version
+msgid "Version"
+msgstr "版本"
+
+#. module: feitas_iot
+#: model_terms:ir.ui.view,arch_db:feitas_iot.view_crose_component_form
+msgid "View Packages"
+msgstr "查看包"
+
+#. module: feitas_iot
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_data_model__website_message_ids
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_edge_agent__website_message_ids
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_flow__website_message_ids
+#: model:ir.model.fields,field_description:feitas_iot.field_fts_nr_instance__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.model.fields,help:feitas_iot.field_fts_data_model__website_message_ids
+#: model:ir.model.fields,help:feitas_iot.field_fts_edge_agent__website_message_ids
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_flow__website_message_ids
+#: model:ir.model.fields,help:feitas_iot.field_fts_nr_instance__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: feitas_iot
+#. odoo-python
+#: code:addons/feitas_iot/models/edge_agent.py:0
+msgid ""
+"⚠️ System notice: the AI API key is not configured. Please set "
+"`feitas_iot.deepseek_api_key` in system parameters."
+msgstr ""
+
+#. module: feitas_iot
+#: model:ir.actions.server,name:feitas_iot.ir_cron_integration_status_update_ir_actions_server
+msgid "各集成系统状态更新"
+msgstr "各集成系统状态更新"
