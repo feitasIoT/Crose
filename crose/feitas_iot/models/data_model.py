@@ -20,7 +20,7 @@ class DataModel(models.Model):
     _description = 'Data Model'
     _inherit = ['mail.thread', 'mail.activity.mixin', 'spreadsheet.mixin']
 
-    name = fields.Char(string=_('Code'), required=True, copy=False, readonly=True, default=lambda self: _('New'))
+    name = fields.Char(string=_('Code'), required=True, copy=False)
     partner_id = fields.Many2one('res.partner', string=_('Requester'), required=True)
     provider_id = fields.Many2one('res.partner', string=_('Provider'), required=True)
     protocol = fields.Selection([
@@ -43,9 +43,15 @@ class DataModel(models.Model):
     username = fields.Char(string=_('Username'))
     password = fields.Char(string=_('Password'))
 
+    query_type = fields.Selection([
+        ('data', 'Time-Series Data'),
+        ('log', 'Logs'),
+    ], string=_('Query Type'), default='data', required=True)
     query_start_time = fields.Datetime(string=_('Start Time'))
     query_end_time = fields.Datetime(string=_('End Time'))
     query_interval = fields.Integer(string=_('Interval (Seconds)'), default=60)
+
+    redis_key = fields.Char(string=_('Redis Key'), help=_('Fixed Redis key to query, e.g. check_db'))
 
     @api.onchange('query_start_time')
     def _onchange_query_start_time(self):
@@ -70,6 +76,24 @@ class DataModel(models.Model):
         ('invalid', 'Invalid'),
     ], string=_('Status'), default='draft', required=True)
 
+    data_asset = fields.Char(string=_('Data Asset'), compute='_compute_data_asset', store=True)
+    topic = fields.Char(string=_('Topic'), compute='_compute_topic', store=True)
+
+    _sql_constraints = [
+        ('name_provider_unique', 'unique(name, provider_id)', _('The combination of Code and Provider must be unique.')),
+    ]
+
+    @api.depends('provider_id.name', 'name')
+    def _compute_data_asset(self):
+        for record in self:
+            record.data_asset = f'{record.provider_id.name}.{record.name}' if record.provider_id and record.name else False
+
+    @api.depends('provider_id.name', 'name')
+    def _compute_topic(self):
+        for record in self:
+            provider_name = record.provider_id.name or ''
+            record.topic = f'/upload/{provider_name}/{record.name}' if record.name else False
+
     def _format_json_text(self, value):
         if value is None:
             return value
@@ -86,8 +110,6 @@ class DataModel(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
-            if vals.get('name', _('New')) == _('New'):
-                vals['name'] = self.env['ir.sequence'].next_by_code('fts.data.model') or _('New')
             if 'data_structure' in vals:
                 vals['data_structure'] = self._format_json_text(vals.get('data_structure'))
         records = super(DataModel, self).create(vals_list)
@@ -201,9 +223,20 @@ class DataModel(models.Model):
             helper returns the row count before opening the spreadsheet.
         """
         try:
-            _, _, count_sql, _ = self._build_iotdb_sql()
-            count_df = self._execute_iotdb_query(count_sql)
-            count = int(count_df.iloc[0, 0]) if len(count_df) > 0 else 0
+            if self.query_type == 'data':
+                start_ts, end_ts, count_sql, result_sql = self._build_iotdb_sql()
+                count_df = self._execute_iotdb_query(count_sql)
+                count = int(count_df.iloc[0, 0]) if len(count_df) > 0 else 0
+            else:
+                redis_value = self._execute_redis_query()
+                if redis_value is None:
+                    count = 0
+                elif isinstance(redis_value, dict):
+                    count = len(redis_value)
+                elif isinstance(redis_value, (list, tuple, set)):
+                    count = len(redis_value)
+                else:
+                    count = 1
 
             return {
                 "type": "ir.actions.client",
@@ -221,8 +254,12 @@ class DataModel(models.Model):
 
     def action_open_spreadsheet(self):
         try:
-            _, _, _, result_sql = self._build_iotdb_sql()
-            result_df = self._execute_iotdb_query(result_sql)
+            if self.query_type == 'data':
+                _, _, _, result_sql = self._build_iotdb_sql()
+                result_df = self._execute_iotdb_query(result_sql)
+            else:
+                redis_value = self._execute_redis_query()
+                result_df = self._build_redis_dataframe(redis_value)
             self.spreadsheet_binary_data = self._build_spreadsheet_binary_data(result_df)
         except Exception as e:
             raise ValidationError(_("Failed to generate spreadsheet: %(error)s", error=str(e)))
@@ -289,6 +326,78 @@ class DataModel(models.Model):
                 session.close()
             except Exception:
                 pass
+
+    def _get_redis_connection_params(self):
+        redis_comp = self.env["crose.component"].search(
+            [("component_type", "=", "redis"), ("status", "=", "online")], limit=1
+        )
+        if not redis_comp:
+            redis_comp = self.env["crose.component"].search(
+                [("component_type", "=", "redis")], limit=1
+            )
+        if not redis_comp:
+            raise ValidationError(_("No Redis component was found. Please create and activate one in System Components first."))
+        host = redis_comp.host or "localhost"
+        port = redis_comp.port or 6379
+        metadata = {}
+        if redis_comp.metadata:
+            with contextlib.suppress(Exception):
+                metadata = json.loads(redis_comp.metadata)
+        username = metadata.get("username")
+        password = metadata.get("password", None)
+        db = metadata.get("db", 0)
+        with contextlib.suppress(Exception):
+            db = int(db)
+        return host, port, username, password, db
+
+    def _execute_redis_query(self):
+        self.ensure_one()
+        import redis
+        host, port, username, password, db = self._get_redis_connection_params()
+        key_name = "check_db"
+        if password:
+            client = redis.Redis(host=host, port=port, username=username, password=password, db=db, decode_responses=True)
+        else:
+            client = redis.Redis(host=host, port=port, username=username, db=db, decode_responses=True)
+
+        key_type = client.type(key_name)
+        if isinstance(key_type, bytes):
+            key_type = key_type.decode(errors="ignore")
+        if key_type in (None, "none"):
+            return None
+        if key_type == "string":
+            return client.get(key_name)
+        if key_type == "set":
+            return list(client.smembers(key_name))
+        if key_type == "hash":
+            return client.hgetall(key_name)
+        if key_type == "list":
+            return client.lrange(key_name, 0, -1)
+        if key_type == "zset":
+            return client.zrange(key_name, 0, -1, withscores=True)
+        if key_type == "stream":
+            return client.xrange(key_name, count=100)
+        raise ValidationError(
+            _(
+                "Redis key %(key)s in db %(db)s has unsupported type %(type)s.",
+                key=key_name,
+                db=db,
+                type=key_type,
+            )
+        )
+
+    def _build_redis_dataframe(self, redis_value):
+        import pandas as pd
+
+        if redis_value is None:
+            return pd.DataFrame([{"key": "check_db", "value": ""}])
+        if isinstance(redis_value, dict):
+            rows = [{"field": k, "value": v} for k, v in redis_value.items()]
+            return pd.DataFrame(rows)
+        if isinstance(redis_value, (list, tuple, set)):
+            rows = [{"index": idx, "value": item} for idx, item in enumerate(redis_value)]
+            return pd.DataFrame(rows)
+        return pd.DataFrame([{"key": "check_db", "value": redis_value}])
 
     def _build_spreadsheet_binary_data(self, dataframe):
         lang = self.env["res.lang"]._lang_get(self.env.user.lang)

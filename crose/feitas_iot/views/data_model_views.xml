@@ -7,8 +7,10 @@
             <field name="arch" type="xml">
                 <search string="Data Model">
                     <field name="name"/>
-                    <field name="partner_id"/>
                     <field name="provider_id"/>
+                    <field name="data_asset"/>
+                    <field name="topic"/>
+                    <field name="partner_id"/>
                     <field name="mqtt_topic_id"/>
                     <field name="nr_instance_id"/>
                     <field name="state"/>
@@ -47,6 +49,8 @@
                             <group>
                                 <field name="partner_id"/>
                                 <field name="provider_id"/>
+                                <field name="data_asset" readonly="1"/>
+                                <field name="topic" readonly="1"/>
                                 <field name="mqtt_topic_id" invisible="protocol != 'mqtt'"/>
                                 <field name="nr_instance_id"/>
                                 <field name="description"/>
@@ -67,9 +71,11 @@
                             <page name="datas_search" string="Data Query">
                                 <group>
                                     <group>
-                                        <field name="query_start_time"/>
-                                        <field name="query_end_time"/>
-                                        <field name="query_interval"/>
+                                        <field name="query_type"/>
+                                        <field name="redis_key" invisible="query_type != 'log'"/>
+                                        <field name="query_start_time" invisible="query_type != 'data'"/>
+                                        <field name="query_end_time" invisible="query_type != 'data'"/>
+                                        <field name="query_interval" invisible="query_type != 'data'"/>
                                     </group>
                                     <group>
                                         <button name="action_test_query" type="object" string="Test" class="oe_highlight"/>
@@ -118,8 +124,10 @@
             <field name="arch" type="xml">
                 <list string="Data Model">
                     <field name="name"/>
-                    <field name="partner_id"/>
                     <field name="provider_id"/>
+                    <field name="data_asset"/>
+                    <field name="topic"/>
+                    <field name="partner_id"/>
                     <field name="mqtt_topic_id"/>
                     <field name="nr_instance_id"/>
                     <field name="state" widget="badge" decoration-success="state == 'effective'" decoration-info="state == 'draft'" decoration-warning="state == 'approval'" decoration-muted="state == 'invalid'"/>
