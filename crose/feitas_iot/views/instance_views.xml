@@ -11,6 +11,7 @@
                     <field name="name"/>
                     <field name="ip_address"/>
                     <field name="port"/>
+                    <field name="editor_port"/>
                     <field name="status" widget="badge" decoration-success="status == 'online'" decoration-warning="status == 'error'" decoration-muted="status == 'offline'"/>
                     <button name="action_restart" type="object" icon="fa-refresh" title="Restart" />
                     <button name="action_open_editor" type="object" icon="fa-external-link" title="Open"  />
@@ -80,6 +81,7 @@
                                 <field name="instance_type"/>
                                 <field name="name"/>
                                 <field name="port"/>
+                                <field name="editor_port"/>
                             </group>
                             <group string="Agent">
                                 <field name="edge_agent_id"/>

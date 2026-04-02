@@ -15,13 +15,9 @@ class NodeREDEmbed extends Component {
         let url = params.node_red_url;
         if (url) {
             const browserHost = window.location.hostname;
-            if (url.includes('//nodered-staging:')) {
-                url = url.replace('//nodered-staging:', `//${browserHost}:`);
-            } else if (url.includes('//nodered:')) {
-                url = url.replace('//nodered:', `//${browserHost}:`);
-            } else if (url.includes('//gmqtt:')) {
-                url = url.replace('//gmqtt:', `//${browserHost}:`);
-            }
+            const parsed = new URL(url, window.location.origin);
+            parsed.hostname = browserHost;
+            url = parsed.toString();
         }
         if (url) {
             return url;

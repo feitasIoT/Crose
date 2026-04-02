@@ -96,7 +96,8 @@
         <field name="name">Node-RED Prod</field>
         <field name="instance_type">local</field>
         <field name="ip_address">nodered</field>
-        <field name="port">8880</field>
+        <field name="port">1880</field>
+        <field name="editor_port">8880</field>
         <field name="npm_registry_id" ref="component_registr_prod"/>
     </record>
 
@@ -104,7 +105,8 @@
         <field name="name">Node-RED Staging</field>
         <field name="instance_type">local</field>
         <field name="ip_address">nodered-staging</field>
-        <field name="port">8881</field>
+        <field name="port">1880</field>
+        <field name="editor_port">8881</field>
         <field name="npm_registry_id" ref="component_registry_stage"/>
     </record>
 

@@ -16,6 +16,7 @@ class FtsNrInstance(models.Model):
     name = fields.Char(string=_("Name"), required=True)
     ip_address = fields.Char(string=_("IP Address"), required=True)
     port = fields.Integer(string=_("Port"), required=True, default=1880)
+    editor_port = fields.Integer(string=_("Editor Port"))
     instance_type = fields.Selection(
         [
             ("local", "Local Instance"),
@@ -182,9 +183,6 @@ class FtsNrInstance(models.Model):
             },
         }
 
-
-
-
     def action_open_editor(self):
         self.ensure_one()
         action = self.env.ref("feitas_iot.action_node_red_editor_client", raise_if_not_found=False)
@@ -192,9 +190,10 @@ class FtsNrInstance(models.Model):
             res = action.read()[0]
             res["display_name"] = _("Node-RED Editor")
             res["name"] = _("Node-RED Editor")
+            editor_port = self.editor_port or self.port
             res['params'] = {
                 'instance_id': self.id,
-                'node_red_url': f"http://{self.ip_address}:{self.port}",
+                'node_red_url': f"http://{self.ip_address}:{editor_port}",
             }
             return res
         return {}
@@ -230,46 +229,37 @@ class FtsNrInstance(models.Model):
 
     def action_test(self):
         self.ensure_one()
-        import requests
-        try:
-            url = f"http://{self.ip_address}:{self.port}"
-            response = requests.get(url, timeout=5)
-            if response.status_code == 200:
-                self.status = "online"
-                return {
-                    'type': 'ir.actions.client',
-                    'tag': 'display_notification',
-                    'params': {
-                        'title': _('Connection Successful'),
-                        'message': _('The Node-RED instance is reachable.'),
-                        'type': 'success',
-                        'sticky': False,
+        tried = []
+        for base_url in self._nr_candidate_base_urls():
+            try:
+                response = requests.get(base_url, timeout=5)
+                if 200 <= response.status_code < 400:
+                    self.status = "online"
+                    return {
+                        'type': 'ir.actions.client',
+                        'tag': 'display_notification',
+                        'params': {
+                            'title': _('Connection Successful'),
+                            'message': _('The Node-RED instance is reachable: %(url)s', url=base_url),
+                            'type': 'success',
+                            'sticky': False,
+                        }
                     }
-                }
-            else:
-                self.status = "error"
-                return {
-                    'type': 'ir.actions.client',
-                    'tag': 'display_notification',
-                    'params': {
-                        'title': _('Connection Failed'),
-                        'message': _('The server returned status code: %(code)s', code=response.status_code),
-                        'type': 'warning',
-                        'sticky': False,
-                    }
-                }
-        except Exception as e:
-            self.status = "offline"
-            return {
-                'type': 'ir.actions.client',
-                'tag': 'display_notification',
-                'params': {
-                    'title': _('Connection Error'),
-                    'message': _('Unable to connect to Node-RED: %(error)s', error=str(e)),
-                    'type': 'danger',
-                    'sticky': False,
-                }
+                tried.append(f"{base_url} -> {response.status_code}")
+            except Exception as e:
+                tried.append(f"{base_url} -> {str(e)}")
+
+        self.status = "offline"
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': _('Connection Error'),
+                'message': _('Unable to connect to Node-RED. Tried: %(detail)s', detail=" | ".join(tried[:3])),
+                'type': 'danger',
+                'sticky': False,
             }
+        }
 
     def action_apply_flows(self):
         """
@@ -461,28 +451,59 @@ class FtsNrInstance(models.Model):
         self.ensure_one()
         return self._nr_get_json('/flow/global')
 
+    def _nr_candidate_base_urls(self):
+        self.ensure_one()
+        host = (self.ip_address or "").strip()
+        port = int(self.port or 1880)
+        if not host:
+            return []
+        if host.startswith("http://"):
+            host = host[7:]
+        elif host.startswith("https://"):
+            host = host[8:]
+        if "/" in host:
+            host = host.split("/", 1)[0]
+        if ":" in host:
+            maybe_host, maybe_port = host.rsplit(":", 1)
+            if maybe_port.isdigit():
+                host = maybe_host
+                port = int(maybe_port)
+        return [f"http://{host}:{port}"]
+
     def _nr_get_json(self, path, timeout=15):
         self.ensure_one()
-        url = f"http://{self.ip_address}:{self.port}{path}"
         headers = {
             'Node-RED-API-Version': 'v2',
         }
-        response = requests.get(url, headers=headers, timeout=timeout)
-        response.raise_for_status()
-        return response.json()
+        last_error = None
+        for base_url in self._nr_candidate_base_urls():
+            url = f"{base_url}{path}"
+            try:
+                response = requests.get(url, headers=headers, timeout=timeout)
+                response.raise_for_status()
+                return response.json()
+            except Exception as e:
+                last_error = e
+        raise UserError(_("Failed to call Node-RED API: %(error)s", error=str(last_error)))
 
     def _nr_post_json(self, path, body, timeout=15):
         self.ensure_one()
-        url = f"http://{self.ip_address}:{self.port}{path}"
         headers = {
             "Node-RED-API-Version": "v2",
         }
-        response = requests.post(url, headers=headers, json=body, timeout=timeout)
-        response.raise_for_status()
-        try:
-            return response.json()
-        except Exception:
-            return {}
+        last_error = None
+        for base_url in self._nr_candidate_base_urls():
+            url = f"{base_url}{path}"
+            try:
+                response = requests.post(url, headers=headers, json=body, timeout=timeout)
+                response.raise_for_status()
+                try:
+                    return response.json()
+                except Exception:
+                    return {}
+            except Exception as e:
+                last_error = e
+        raise UserError(_("Failed to call Node-RED API: %(error)s", error=str(last_error)))
 
     def _nr_generate_id(self):
         return f"{uuid.uuid4().hex[:7]}.{uuid.uuid4().hex[:7]}"
