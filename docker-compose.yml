@@ -158,11 +158,18 @@ services:
       - crose-net
 
   crose-nas:
-    image: dperson/samba
-    environment:
-      - SHARE=data;/share;yes;no;no;guest
+    image: filebrowser/filebrowser:latest
+    ports:
+      - "8081:80"  # 避开冲突，产线 PC 访问这个端口
     volumes:
-      - ./data/samba/my_data:/share
+      - ./data/nas/srv:/srv
+      - ./data/nas/config:/config
+      - ./data/nas/database:/database
+    environment:
+      - FB_BASEURL=/
+    restart: always
+    networks:
+      - crose-net
 
 
 volumes:

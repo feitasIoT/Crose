@@ -33,13 +33,16 @@ docker-compose up -d --build
 - nodered-staging
 - verdaccio-prod
 - verdaccio-staging
+- crose-nas
 
 > 虽然启动了不少容器，但你可以在Crose Web中完成所有操作，无需多虑。
 
 ### 体验
 
-- 用谷歌、Edge等浏览器访问：http://ip:8069
-- 用户名：admin， 密码：crose
+- 用谷歌、Edge等浏览器访问：http://ip:8069   用户名：admin， 密码：crose
+- NAS(filebrowser)：访问http://ip:8081    用户名：admin，密码：FeitasCrose2026
+
+> 初始密码，请及时修改！！
 
 ## 📅 里程碑
 

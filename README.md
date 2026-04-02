@@ -40,8 +40,12 @@ You will find 10 containers started:
 
 ### Getting Started
 
-- Access via browser (Chrome, Edge, etc.): http://ip:8069
-- Username: admin, Password: crose
+- Access via browser (Chrome, Edge, etc.): http://ip:8069    Username: admin, Password: crose
+- NAS(filebrowser)：访问http://ip:8081    用户名：admin，密码：FeitasCrose2026
+
+> Initial password, please change it immediately!
+
+
 
 ## 📅 Key Milestones
 
