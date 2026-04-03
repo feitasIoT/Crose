@@ -1,121 +1,167 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
     <t t-name="feitas_iot.OverviewDashboard">
-        <div class="o_action p-4">
+        <div class="o_action p-4 feitas_iot_overview">
             <div class="mb-3">
                 <h2 class="m-0">Overview</h2>
             </div>
-            <div class="row g-3">
-                <div class="col-12 col-lg-6">
-                    <div class="row g-3">
-                        <div class="col-12 col-md-6">
-                            <div class="border rounded p-3 bg-white h-100">
-                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <h5 class="m-0">Platform</h5>
-                                    <i class="fa fa-question-circle text-muted" title="Show the runtime status of key platform components, including the MQTT Broker, NPM Registry, and local instances." style="cursor: pointer;"></i>
-                                </div>
-                                <t t-if="state.loading">
-                                    <div class="text-muted">Loading...</div>
-                                </t>
-                                <t t-elif="state.error">
-                                    <div class="text-danger" t-esc="state.error"/>
-                                </t>
-                                <t t-else="">
-                                    <div class="row g-3 feitas_iot_dashboard_gauges">
-                                        <t t-foreach="state.components" t-as="component" t-key="component.id">
-                                            <div class="col-12">
-                                                <div class="feitas_iot_dashboard_gauge">
-                                                    <div class="d-flex align-items-baseline justify-content-between">
-                                                        <div class="fw-semibold" t-esc="component.name"/>
-                                                        <div class="text-muted">
-                                                            <span t-att-class="'badge text-bg-' + (component.status === 'online' ? 'success' : 'danger')" t-esc="component.status"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </t>
-                                    </div>
-                                </t>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="border rounded p-3 bg-white h-100">
-                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <h5 class="m-0">Statistics</h5>
-                                    <i class="fa fa-question-circle text-muted" title="Show the number of key platform resources, such as edge agents, application instances, and MQTT topics." style="cursor: pointer;"></i>
-                                </div>
-                                <t t-if="state.loading">
-                                    <div class="text-muted">Loading...</div>
-                                </t>
-                                <t t-elif="state.error">
-                                    <div class="text-danger" t-esc="state.error"/>
-                                </t>
-                                <t t-else="">
-                                    <t t-set="agentCount" t-value="(state.overview &amp;&amp; state.overview.stats &amp;&amp; state.overview.stats.agents) || 0"/>
-                                    <t t-set="instanceCount" t-value="(state.overview &amp;&amp; state.overview.stats &amp;&amp; state.overview.stats.instances) || 0"/>
-                                    <t t-set="topicCount" t-value="(state.overview &amp;&amp; state.overview.stats &amp;&amp; state.overview.stats.topics) || 0"/>
-    
-                                    <div class="d-flex gap-2 feitas_iot_dashboard_kpis">
-                                        <div class="border rounded p-2 bg-light feitas_iot_dashboard_kpi">
-                                            <div class="text-muted small">Agents</div>
-                                            <div class="feitas_iot_dashboard_kpi_value">
-                                                <t t-esc="agentCount"/>
-                                            </div>
-                                        </div>
-                                        <div class="border rounded p-2 bg-light feitas_iot_dashboard_kpi">
-                                            <div class="text-muted small">Instances</div>
-                                            <div class="feitas_iot_dashboard_kpi_value">
-                                                <t t-esc="instanceCount"/>
-                                            </div>
-                                        </div>
-                                        <div class="border rounded p-2 bg-light feitas_iot_dashboard_kpi">
-                                            <div class="text-muted small">Topics</div>
-                                            <div class="feitas_iot_dashboard_kpi_value">
-                                                <t t-esc="topicCount"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </t>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <div class="d-flex flex-column gap-3">
-                        <div class="border rounded p-3 bg-white">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <h5 class="m-0">To Do</h5>
-                                <i class="fa fa-question-circle text-muted" title="This section lists pending items that need attention." style="cursor: pointer;"></i>
-                            </div>
-                            <div class="text-muted">No pending items</div>
-                        </div>
+            <t t-if="state.loading">
+                <div class="text-muted">Loading...</div>
+            </t>
+            <t t-elif="state.error">
+                <div class="text-danger" t-esc="state.error"/>
+            </t>
+            <t t-else="">
+                <t t-set="metrics" t-value="(state.overview &amp;&amp; state.overview.metrics) || {}"/>
+                <t t-set="dashboard" t-value="(state.overview &amp;&amp; state.overview.dashboard) || {}"/>
+                <t t-set="connectivity" t-value="dashboard.connectivity || {}"/>
+                <t t-set="protocol" t-value="connectivity.protocol || {}"/>
+                <t t-set="throughput" t-value="dashboard.throughput || {}"/>
+                <t t-set="valueDelivery" t-value="dashboard.value_delivery || {}"/>
+                <t t-set="asset" t-value="dashboard.asset_insight || {}"/>
 
-                        <div class="border rounded p-3 bg-white">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <h5 class="m-0">Messages</h5>
-                                <i class="fa fa-question-circle text-muted" title="This section shows the latest system activity." style="cursor: pointer;"></i>
-                            </div>
-                            <t t-if="state.logs and state.logs.length">
-                                <div class="d-flex flex-column gap-2">
-                                    <t t-foreach="state.logs" t-as="log" t-key="log.id">
-                                        <div class="border rounded p-2">
-                                            <div class="text-muted small">
-                                                <t t-esc="formatLogCreateDate(log.create_date)"/>
-                                            </div>
-                                            <div>
-                                                <t t-esc="log.message"/>
-                                            </div>
-                                        </div>
-                                    </t>
-                                </div>
-                            </t>
-                            <t t-else="">
-                                <div class="text-muted">No recent activity</div>
-                            </t>
+                <div class="border rounded p-2 bg-white mb-3">
+                    <div class="d-flex gap-2 feitas_iot_dashboard_kpis">
+                        <div class="border rounded p-2 bg-light feitas_iot_dashboard_kpi flex-fill">
+                            <div class="text-muted small">CPU</div>
+                            <div class="feitas_iot_dashboard_kpi_value"><t t-esc="metrics.cpu || '-'"/></div>
+                        </div>
+                        <div class="border rounded p-2 bg-light feitas_iot_dashboard_kpi flex-fill">
+                            <div class="text-muted small">Memory</div>
+                            <div class="feitas_iot_dashboard_kpi_value"><t t-esc="metrics.memory || '-'"/></div>
+                        </div>
+                        <div class="border rounded p-2 bg-light feitas_iot_dashboard_kpi flex-fill">
+                            <div class="text-muted small">Disk</div>
+                            <div class="feitas_iot_dashboard_kpi_value"><t t-esc="metrics.disk || '-'"/></div>
+                        </div>
+                        <div class="border rounded p-2 bg-light feitas_iot_dashboard_kpi flex-fill">
+                            <div class="text-muted small">Network</div>
+                            <div class="feitas_iot_dashboard_kpi_value"><t t-esc="metrics.network || '-'"/></div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="row g-3">
+                    <div class="col-12 col-xl-4">
+                        <div class="border rounded p-3 bg-white h-100">
+                            <h5 class="m-0 mb-3">Connectivity &amp; Health</h5>
+                            <div class="d-flex flex-wrap gap-2 mb-3">
+                                <t t-foreach="connectivity.topology || []" t-as="node" t-key="node.label">
+                                    <span t-att-class="'badge ' + (node.ok ? 'text-bg-success' : 'text-bg-danger')" t-esc="node.label"/>
+                                </t>
+                            </div>
+                            <div class="row g-2 mb-3">
+                                <div class="col-4">
+                                    <div class="border rounded p-2 bg-light text-center">
+                                        <div class="text-muted small">Modbus Points</div>
+                                        <div class="fw-semibold fs-5"><t t-esc="protocol.modbus_points || 0"/></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="border rounded p-2 bg-light text-center">
+                                        <div class="text-muted small">MQTT Topics</div>
+                                        <div class="fw-semibold fs-5"><t t-esc="protocol.mqtt_topics || 0"/></div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="border rounded p-2 bg-light text-center">
+                                        <div class="text-muted small">SMB Links</div>
+                                        <div class="fw-semibold fs-5"><t t-esc="protocol.smb_connections || 0"/></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h6 class="m-0 mb-2">Data Throughput</h6>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <div class="border rounded p-2 bg-light">
+                                        <div class="text-muted small">Records/sec</div>
+                                        <div class="fw-semibold fs-5"><t t-esc="throughput.records_per_sec || 0"/></div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="border rounded p-2 bg-light">
+                                        <div class="text-muted small">Today Records</div>
+                                        <div class="fw-semibold fs-5"><t t-esc="throughput.records_today || 0"/></div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="border rounded p-2 bg-light">
+                                        <div class="text-muted small">Reports Today</div>
+                                        <div class="fw-semibold fs-5"><t t-esc="throughput.reports_today || 0"/></div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="border rounded p-2 bg-light">
+                                        <div class="text-muted small">Latency (ms)</div>
+                                        <div class="fw-semibold fs-5"><t t-esc="throughput.latency_ms || '-'"/></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-4">
+                        <div class="border rounded p-3 bg-white h-100">
+                            <h5 class="m-0 mb-3">Value Delivery</h5>
+                            <div class="row g-2 mb-3">
+                                <t t-foreach="valueDelivery.kpis || []" t-as="kpi" t-key="kpi.label">
+                                    <div class="col-12">
+                                        <div class="border rounded p-2 bg-light d-flex justify-content-between align-items-center">
+                                            <div class="text-muted small" t-esc="kpi.label"/>
+                                            <div class="fw-semibold fs-5" t-esc="kpi.value"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                            <div class="border rounded p-2 bg-light">
+                                <div class="text-muted small mb-1" t-esc="valueDelivery.trend_title || 'Trend'"/>
+                                <svg viewBox="0 0 340 110" class="w-100 feitas_iot_trend_svg">
+                                    <polyline t-att-points="getTrendPath()" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-4">
+                        <div class="border rounded p-3 bg-white h-100">
+                            <h5 class="m-0 mb-3">Asset Insight</h5>
+                            <div class="border rounded p-2 bg-light mb-3">
+                                <div class="text-muted small mb-1">Device Online Ratio</div>
+                                <div class="progress mb-1" style="height: 10px;">
+                                    <div class="progress-bar bg-success" role="progressbar" t-att-style="'width: ' + getDeviceOnlinePct() + '%'" t-att-aria-valuenow="getDeviceOnlinePct()" aria-valuemin="0" aria-valuemax="100"/>
+                                </div>
+                                <div class="small text-muted">
+                                    <t t-esc="asset.online_devices || 0"/> / <t t-esc="asset.devices_total || 0"/> online
+                                </div>
+                            </div>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <div class="border rounded p-2 bg-light">
+                                        <div class="text-muted small">Devices</div>
+                                        <div class="fw-semibold fs-5"><t t-esc="asset.devices_total || 0"/></div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="border rounded p-2 bg-light">
+                                        <div class="text-muted small">Digital Models</div>
+                                        <div class="fw-semibold fs-5"><t t-esc="asset.digital_models || 0"/></div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="border rounded p-2 bg-light">
+                                        <div class="text-muted small">Running Flows</div>
+                                        <div class="fw-semibold fs-5"><t t-esc="asset.running_flows || 0"/></div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="border rounded p-2 bg-light">
+                                        <div class="text-muted small">Commands Today</div>
+                                        <div class="fw-semibold fs-5"><t t-esc="asset.commands_today || 0"/></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
         </div>
     </t>
 </templates>

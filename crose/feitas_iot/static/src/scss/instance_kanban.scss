@@ -43,6 +43,14 @@
     line-height: 1.1;
 }
 
+.feitas_iot_overview .feitas_iot_dashboard_kpi_value {
+    white-space: nowrap;
+}
+
+.feitas_iot_trend_svg {
+    min-height: 120px;
+}
+
 @keyframes feitas_iot_status_blink {
     0% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.25; transform: scale(0.75); }

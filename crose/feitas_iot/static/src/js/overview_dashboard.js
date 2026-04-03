@@ -2,7 +2,6 @@
 
 import { registry } from "@web/core/registry";
 import { Component, onWillStart, useState } from "@odoo/owl";
-import { useService } from "@web/core/utils/hooks";
 import { rpc } from "@web/core/network/rpc";
 
 class OverviewDashboard extends Component {
@@ -13,11 +12,17 @@ class OverviewDashboard extends Component {
             loading: true,
             error: null,
             components: [],
-            stats: {},
-            logs: [],
-            overview: { stats: { agents: 0, instances: 0, topics: 0 } }
+            overview: {
+                stats: { agents: 0, instances: 0, topics: 0 },
+                metrics: { cpu: "-", memory: "-", disk: "-", network: "-" },
+                dashboard: {
+                    connectivity: { topology: [], protocol: {} },
+                    throughput: {},
+                    value_delivery: { kpis: [], trend_points: [] },
+                    asset_insight: {},
+                },
+            },
         });
-        this.orm = useService("orm");
 
         onWillStart(async () => {
             await this.fetchData();
@@ -28,7 +33,10 @@ class OverviewDashboard extends Component {
         this.state.loading = true;
         try {
             const componentData = await rpc("/feitas_iot/get_component_status");
-            this.state.components = componentData.components;
+            this.state.components = componentData.components || [];
+            if (componentData.overview) {
+                this.state.overview = componentData.overview;
+            }
             this.state.error = null;
         } catch (e) {
             this.state.error = e.message;
@@ -43,6 +51,33 @@ class OverviewDashboard extends Component {
         const total = filtered.length;
         const pct = total > 0 ? Math.round((online * 100) / total) : 0;
         return { online, total, pct };
+    }
+
+    getTrendPath() {
+        const points = (this.state.overview?.dashboard?.value_delivery?.trend_points) || [];
+        if (!points.length) {
+            return "";
+        }
+        const width = 340;
+        const height = 110;
+        const min = Math.min(...points);
+        const max = Math.max(...points);
+        const range = max - min || 1;
+        return points.map((v, i) => {
+            const x = points.length === 1 ? 0 : (i * width) / (points.length - 1);
+            const y = height - ((v - min) / range) * height;
+            return `${x},${y}`;
+        }).join(" ");
+    }
+
+    getDeviceOnlinePct() {
+        const asset = this.state.overview?.dashboard?.asset_insight || {};
+        const total = Number(asset.devices_total || 0);
+        const online = Number(asset.online_devices || 0);
+        if (!total) {
+            return 0;
+        }
+        return Math.round((online * 100) / total);
     }
 }
 
