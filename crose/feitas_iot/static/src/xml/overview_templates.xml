@@ -21,23 +21,13 @@
                 <t t-set="asset" t-value="dashboard.asset_insight || {}"/>
 
                 <div class="border rounded p-2 bg-white mb-3">
-                    <div class="d-flex gap-2 feitas_iot_dashboard_kpis">
-                        <div class="border rounded p-2 bg-light feitas_iot_dashboard_kpi flex-fill">
-                            <div class="text-muted small">CPU</div>
-                            <div class="feitas_iot_dashboard_kpi_value"><t t-esc="metrics.cpu || '-'"/></div>
-                        </div>
-                        <div class="border rounded p-2 bg-light feitas_iot_dashboard_kpi flex-fill">
-                            <div class="text-muted small">Memory</div>
-                            <div class="feitas_iot_dashboard_kpi_value"><t t-esc="metrics.memory || '-'"/></div>
-                        </div>
-                        <div class="border rounded p-2 bg-light feitas_iot_dashboard_kpi flex-fill">
-                            <div class="text-muted small">Disk</div>
-                            <div class="feitas_iot_dashboard_kpi_value"><t t-esc="metrics.disk || '-'"/></div>
-                        </div>
-                        <div class="border rounded p-2 bg-light feitas_iot_dashboard_kpi flex-fill">
-                            <div class="text-muted small">Network</div>
-                            <div class="feitas_iot_dashboard_kpi_value"><t t-esc="metrics.network || '-'"/></div>
-                        </div>
+                    <div class="d-flex flex-wrap gap-2 align-items-center" style="height: 60px;">
+                        <t t-foreach="state.components || []" t-as="component" t-key="component.name">
+                            <div class="border rounded px-2 py-1 bg-light d-flex align-items-center gap-2" style="height: 100%;">
+                                <span t-att-class="'feitas_iot_status_dot ' + (component.status === 'online' ? 'feitas_iot_status_online' : 'feitas_iot_status_error')"/>
+                                <span class="small fw-semibold" t-esc="component.name"/>
+                            </div>
+                        </t>
                     </div>
                 </div>
 
@@ -95,6 +85,25 @@
                                         <div class="text-muted small">Latency (ms)</div>
                                         <div class="fw-semibold fs-5"><t t-esc="throughput.latency_ms || '-'"/></div>
                                     </div>
+                                </div>
+                            </div>
+                            <h6 class="m-0 mt-3 mb-2">Resource Metrics</h6>
+                            <div class="d-flex gap-2 feitas_iot_dashboard_kpis">
+                                <div class="border rounded p-2 bg-light feitas_iot_dashboard_kpi flex-fill">
+                                    <div class="text-muted small">CPU</div>
+                                    <div class="feitas_iot_dashboard_kpi_value"><t t-esc="metrics.cpu || '-'"/></div>
+                                </div>
+                                <div class="border rounded p-2 bg-light feitas_iot_dashboard_kpi flex-fill">
+                                    <div class="text-muted small">Memory</div>
+                                    <div class="feitas_iot_dashboard_kpi_value"><t t-esc="metrics.memory || '-'"/></div>
+                                </div>
+                                <div class="border rounded p-2 bg-light feitas_iot_dashboard_kpi flex-fill">
+                                    <div class="text-muted small">Disk</div>
+                                    <div class="feitas_iot_dashboard_kpi_value"><t t-esc="metrics.disk || '-'"/></div>
+                                </div>
+                                <div class="border rounded p-2 bg-light feitas_iot_dashboard_kpi flex-fill">
+                                    <div class="text-muted small">Network</div>
+                                    <div class="feitas_iot_dashboard_kpi_value"><t t-esc="metrics.network || '-'"/></div>
                                 </div>
                             </div>
                         </div>

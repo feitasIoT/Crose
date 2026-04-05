@@ -3,6 +3,7 @@ import contextlib
 import json
 import math
 import logging
+import uuid
 
 
 from odoo import models, fields, api, _
@@ -268,6 +269,73 @@ class DataModel(models.Model):
             "tag": "feitas_iot.action_open_spreadsheet",
             "params": {
                 "resId": self.id,
+            },
+        }
+
+    def action_start(self):
+        self.ensure_one()
+        if not self.nr_instance_id:
+            raise ValidationError(_("Please select a runtime instance before starting."))
+        template_flows = self.nr_flow_ids
+        if not template_flows:
+            raise ValidationError(_("Please select at least one flow template in Applications."))
+
+        Flow = self.env["fts.nr.flow"]
+        Line = self.env["instance.flow.line"]
+        created_flows = Flow.browse()
+
+        for template in template_flows:
+            vals = {
+                "name": f"{template.name} - {self.name}",
+                "nr_id": f"{uuid.uuid4().hex[:7]}.{uuid.uuid4().hex[:7]}",
+                "type": template.type,
+                "is_template": False,
+                "content": template.content,
+                "instance_id": self.nr_instance_id.id,
+                "data_model_id": self.id,
+                "tag_ids": [(6, 0, template.tag_ids.ids)],
+                "heat": template.heat,
+                "description": template.description,
+                "prompt": template.prompt,
+                "param_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "name": p.name,
+                            "value": p.value,
+                            "type": p.type,
+                            "description": p.description,
+                            "model_id": self.id,
+                        },
+                    )
+                    for p in template.param_ids
+                ],
+            }
+            created_flows |= Flow.create(vals)
+
+        for flow in created_flows:
+            Line.create(
+                {
+                    "instance_id": self.nr_instance_id.id,
+                    "flow_id": flow.id,
+                }
+            )
+
+        self.nr_instance_id.action_apply_flows()
+
+        return {
+            "type": "ir.actions.client",
+            "tag": "display_notification",
+            "params": {
+                "title": _("Start Complete"),
+                "message": _(
+                    "Created %(count)s flows on %(instance)s and pushed them to Node-RED.",
+                    count=len(created_flows),
+                    instance=self.nr_instance_id.display_name,
+                ),
+                "type": "success",
+                "sticky": False,
             },
         }
 

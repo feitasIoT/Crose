@@ -32,6 +32,7 @@
             <field name="arch" type="xml">
                 <form string="Data Model">
                     <header>
+                        <button name="action_start" type="object" string="Start" class="btn-primary"/>
                         <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
                     </header>
                     <sheet>
@@ -53,6 +54,7 @@
                                 <field name="topic" readonly="1"/>
                                 <field name="mqtt_topic_id" invisible="protocol != 'mqtt'"/>
                                 <field name="nr_instance_id"/>
+                                <field name="nr_flow_ids" widget="many2many_tags" style="margin-bottom: 10px !important"/>
                                 <field name="description"/>
                             </group>
                             <group>
@@ -88,7 +90,7 @@
                             </page>
                             <page name="application" string="Applications">
                                 <group style="margin-bottom: 10px !important">
-                                    <field name="nr_flow_ids" widget="many2many_tags" style="margin-bottom: 10px !important"/>
+                                    
                                     <field name="app_param_ids" nolabel="1" colspan="4">
                                         <list editable="bottom">
                                             <field name="name"/>
